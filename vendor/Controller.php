@@ -1,12 +1,18 @@
 <?php
 
 /**
-* 
-*/
+ * Class Controller
+ */
 class Controller
 {
 	protected $folder;
-	
+
+    /**
+     * @param $file
+     * @param array $data
+     * @param null $title
+     * @param null $admin
+     */
 	function render($file, $data = array(), $title = null, $admin = null){
 		$file_path = "views/".$this->folder."/".$file.".php";
 		if(file_exists($file_path)){
@@ -21,7 +27,7 @@ class Controller
 			}
 			
 		} else {
-			echo "Khong tim thay view";
+			echo "Can not find view";
 			echo "<br>".$file_path;
 		}
 	}

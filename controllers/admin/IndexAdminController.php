@@ -1,19 +1,28 @@
 <?php
 
 /**
-* 
-*/
+ * Class IndexAdminController
+ */
 class IndexAdminController extends Controller
 {
-	
+    /**
+     * IndexAdminController constructor.
+     */
 	function __construct()
 	{
 		$this->folder = "admin";
-
 	}
+
+    /**
+     *
+     */
 	function index(){
 		require_once 'views/admin/index.php';
 	}
+
+    /**
+     *
+     */
 	function dashboard(){
 		if(!isset($_SESSION['admin'])){
 			header("Location: http://localhost/WBH_MVC/indexadmin");
@@ -31,6 +40,10 @@ class IndexAdminController extends Controller
 		$data[] = $mb->allMember();
 		$this->render('dashboard',$data,null,'admin');
 	}
+
+    /**
+     * @return bool|int
+     */
 	function login(){
 		require_once 'vendor/Model.php';
 		require_once 'models/users/userModel.php';
@@ -56,6 +69,10 @@ class IndexAdminController extends Controller
 			echo "Sai tên tài khoản hoặc mật khẩu!";
 		}
 	}
+
+    /**
+     *
+     */
 	function logout(){
 		session_unset();
 		session_destroy();

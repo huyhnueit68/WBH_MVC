@@ -1,16 +1,22 @@
-<?php 
+<?php
 
 /**
-* 
-
-*/
+ * Class userModel
+ */
 class userModel extends Model
 {
-	
+    /**
+     * userModel constructor.
+     */
 	function __construct()
 	{
 		parent::__construct();
 	}
+
+    /**
+     * @param $username
+     * @return array|bool
+     */
 	function getUserByUsername($username)
 	{
 		$result = array();
@@ -24,6 +30,17 @@ class userModel extends Model
 			return $result;
 		}
 	}
+
+    /**
+     * @param $name
+     * @param $un
+     * @param $pw
+     * @param $addr
+     * @param $phone
+     * @param $email
+     * @return bool
+     * @throws Exception
+     */
 	function addUser($name, $un, $pw, $addr, $phone, $email){
 		$now = new DateTime(null, new DateTimeZone('ASIA/Ho_Chi_Minh'));
 		$now = $now->format('Y-m-d H:i:s');

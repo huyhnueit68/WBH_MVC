@@ -16,7 +16,7 @@ class UserController extends Controller
 	function login(){
 		require_once 'vendor/Model.php';
 		require_once 'models/users/userModel.php';
-		$md = new userModel;
+		$md = new userModel; //get module user
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
@@ -146,6 +146,10 @@ class UserController extends Controller
 			}
 		}
 	}
+
+    /**
+     *
+     */
 	function logout(){
 		session_unset();
 		session_destroy();
@@ -153,9 +157,17 @@ class UserController extends Controller
 		setcookie('user',null,-1,'/');
 		header('location: ../');
 	}
+
+    /**
+     *
+     */
 	function viewinfo(){
 		$this->render('info');
 	}
+
+    /**
+     *
+     */
 	function editinfo(){
 		require_once 'vendor/Model.php';
 		require_once 'models/users/userModel.php';
@@ -169,9 +181,17 @@ class UserController extends Controller
 		$md->exe_query($sql);
 		$_SESSION['user'] = $md->getUserByUsername($_SESSION['user']['tentaikhoan']);
 	}
+
+    /**
+     *
+     */
 	function vieweditpassword(){
 		$this->render('editPassword');
 	}
+
+    /**
+     * @return int
+     */
 	function editpassword(){
 		require_once 'vendor/Model.php';
 		require_once 'models/users/userModel.php';

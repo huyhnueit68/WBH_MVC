@@ -1,11 +1,21 @@
 <?php
 
+/**
+ * Class orderModel
+ */
 class orderModel extends Model
 {
+    /**
+     * orderModel constructor.
+     */
 	function __construct()
 	{
 		parent::__construct();
 	}
+
+    /**
+     * @return array
+     */
 	function getAllOrders(){
 		$gd = $this->select('*', 'giaodich',null, 'ORDER BY date DESC');
 		for ($i=0; $i < count($gd); $i++) { 
@@ -20,16 +30,22 @@ class orderModel extends Model
 			$gd[$i]['sp'] = $cart; $cart = null;
 		}
 		return $gd;
-		/*echo "<pre>";
-		print_r($gd);
-		echo "</pre>";*/
 	}
+
+    /**
+     * @return mixed
+     * @throws Exception
+     */
 	function orderToday(){
 		$now = new DateTime(null, new DateTimeZone('ASIA/Ho_Chi_Minh'));
 		$today = $now->format('Y-m-d');
 		$rs = $this->select('count(magd) as neworder','giaodich',"DATE(date) = '".$today."'");
 		return $rs[0]['neworder'];
 	}
+
+    /**
+     * @return array
+     */
 	function gerOrderById(){
 		$magd = 44;
 		$rs = $this->select('*','giaodich',"magd = '".$magd."'");

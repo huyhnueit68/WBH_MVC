@@ -1,12 +1,18 @@
 <?php
 
 /**
-* 
-*/
+ * Class Model
+ */
 class Model
 {
+    /**
+     * @var PDO
+     */
 	protected $conn;
 
+    /**
+     * Model constructor.
+     */
 	function __construct()
 	{
 		try {
@@ -20,6 +26,13 @@ class Model
 		}
 
 	}
+
+    /**
+     * @param $table
+     * @param $value
+     * @param null $row
+     * @return int
+     */
 	function insert($table , $value, $row = null){
 		if($row != null){$row = rtrim(implode(',',$row),',');}
 		$value = rtrim(implode('\',\'',$value),',');
@@ -35,6 +48,14 @@ class Model
 			return 0;
 		}
 	}
+
+    /**
+     * @param $table
+     * @param $setRow
+     * @param $setVal
+     * @param $cond
+     * @return int
+     */
 	function update($table, $setRow, $setVal, $cond){
 		$sql = '';
 		if(gettype($setRow) == "string"){
@@ -57,6 +78,12 @@ class Model
 			return 0;
 		}
 	}
+
+    /**
+     * @param $table
+     * @param $cond
+     * @return int
+     */
 	function delete($table, $cond){
 		$sql = "DELETE FROM ".$table." WHERE ".$cond."";
 		$stmt = $this->conn->prepare($sql);
@@ -69,6 +96,14 @@ class Model
 			return 0;
 		}
 	}
+
+    /**
+     * @param $what
+     * @param $table
+     * @param null $cond
+     * @param null $option
+     * @return array
+     */
 	function select($what, $table, $cond = null, $option = null){
 		if($cond == ''){
 			$sql = "SELECT ".$what." FROM ".$table." ".$option;
@@ -79,6 +114,11 @@ class Model
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
+
+    /**
+     * @param $sql
+     * @return bool
+     */
 	function exe_query($sql)
 	{
 		$stmt = $this->conn->prepare($sql);
@@ -92,6 +132,11 @@ class Model
 		}
 		return $r;
 	}
+
+    /**
+     * @param $sql
+     * @return array
+     */
 	function getListMasp($sql){
 		$result = null;
 		$stmt = $this->conn->prepare($sql);
@@ -102,9 +147,17 @@ class Model
 		}
 		return $result;
 	}
+
+    /**
+     * @return string
+     */
 	function getLastInsertID(){
 		return $this->conn->lastInsertId();
 	}
+
+    /**
+     *
+     */
 	function __destruct()
 	{
 		$this->conn = null;

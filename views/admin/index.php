@@ -19,7 +19,6 @@
 				<form>
 					<legend>Đăng Nhập Admin Mobile Shop</legend>
 					<span><i id="err" style="color: red"></i></span>
-
 					<div class="form-group">
 						<label for="">Tên tài khoản</label>
 						<input type="text" class="form-control" id="username">
@@ -28,9 +27,6 @@
 						<label for="">Mật khẩu</label>
 						<input type="text" class="form-control" id="password">
 					</div>
-
-
-
 					<span class="btn btn-success" onclick="login()">Đăng Nhập</span>
 				</form>
 			</div>
@@ -39,7 +35,7 @@
 	<script>
 		function login(){
 			var username = $('#username').val();
-			var password = $('#password').val();
+            var password = $('#password').val();
 			$.ajax({
 				url : "indexadmin/login",
 				type : "post",

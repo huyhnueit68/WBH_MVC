@@ -1,11 +1,13 @@
 <?php
 
 /**
-* 
-*/
+ * Class AnalyticsController
+ */
 class AnalyticsController extends Controller
 {
-	
+    /**
+     * AnalyticsController constructor.
+     */
 	function __construct()
 	{
 		$this->folder = "admin";
@@ -13,6 +15,10 @@ class AnalyticsController extends Controller
 			header("Location: http://localhost/WBH_MVC/indexadmin");
 		}
 	}
+
+    /**
+     *
+     */
 	function index(){
 		require_once 'vendor/Model.php';
 		/*require_once 'models/admin/memberModel.php';
@@ -20,6 +26,10 @@ class AnalyticsController extends Controller
 		$data = $md->getAllMembers();*/
 		$this->render('analytics',null,'ANALYTICS','admin');
 	}
+
+    /**
+     *
+     */
 	function memberAnalytics(){
 		require_once 'vendor/Model.php';
 		/*require_once 'models/admin/memberModel.php';

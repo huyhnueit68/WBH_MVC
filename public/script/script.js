@@ -69,8 +69,8 @@ function login(){
     },
     success : function (result){
       if(result == 'LoginSuccess'){
-        /*$('.errorMes').html(result);*/
-        window.location.replace("http://localhost/WBH_MVC/");
+        console.log("123");
+        window.location.replace("https://localhost/WBH_MVC");
       } else {
         $('.errorMes')[0].style.display = "block";
         $('.errorMes').html(result);

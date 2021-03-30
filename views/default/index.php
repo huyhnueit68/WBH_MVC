@@ -1,4 +1,3 @@
-
 <div id="content">
 	<div id="carousel-id" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner" id="headerSlide">

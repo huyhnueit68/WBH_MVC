@@ -1,5 +1,5 @@
 <?php 
-DEFINE('INDEX_URL','https://localhost/BaiTapLon/WBH_MVC/');
+DEFINE('INDEX_URL','https://localhost/WBH_MVC/');
 
 DEFINE('DB_HOST','localhost');
 DEFINE('DB_USERNAME','root');
