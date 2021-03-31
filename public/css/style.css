@@ -375,7 +375,7 @@ footer{
 	margin: 0 auto;
 	padding: 20px;
 	font-size: 18px;
-	background-color: #337ab7;
+	background-color: #CC6633;
 	color: white;
 }
 
@@ -804,8 +804,21 @@ input[id=order_tel]::-webkit-inner-spin-button {
 
 .container-fluid-2 {
 	margin-top: 36%;
+	background: #A49375;
 }
 
 .container-fluid-product{
 	width: 1300px;
+}
+
+.row-cart {
+	width: 1300px;
+}
+
+.collapse{
+	background: #A49375;
+}
+
+.container-fluid-slidebar {
+	background: #A49375;
 }

@@ -1,5 +1,5 @@
 <div class="container-fluid form" style="padding: 20px">
-	<div class="row">
+	<div class="row" style="width: 200%;margin-bottom: 200px;">
 		<div class="col-sm-1">
 		</div>
 		<div class="col-sm-10">

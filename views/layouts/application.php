@@ -63,7 +63,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 		</div>
 	</header>
 	<nav class="navbar navbar-default" role="navigation" id="nav">
-		<div class="container-fluid">
+		<div class="container-fluid-slidebar">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -104,14 +104,14 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                             <li class="dropdown-submenu">
                                 <a class="test" href="#">Độc quyền<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Vertu</a></li>
+                                    <li><a href="#">Đồng hồ cổ &nbsp;</a></li>
                                 </ul>
                             </li>
                         </ul>
 					</li>
 					<li class="menu-name" id="dgg"><a href="product/List/OnSale">Đang giảm giá</a></li>
-					<li class="menu-name" id="spm"><a href="product/List/Newest">Sản phẩm mới</a></li>
-					<li class="menu-name" id="mntq"><a href="product/List/BestSelling">Mua nhiều tuần qua</a></li>
+					<li class="menu-name" id="spm"><a href="product/List/Newest">Đồng hồ nam</a></li>
+					<li class="menu-name" id="mntq"><a href="product/List/BestSelling">Đồng hồ nữ</a></li>
 				</ul>
 				<div style="cursor: pointer;"><a href="client/viewcart" style="color: yellow"><i class="glyphicon glyphicon-shopping-cart navbar-right btn-lg" id="cart_count"> 
 					<?php if(isset($_SESSION['cart'])){echo count($_SESSION['cart']);} else echo "0"; ?>
@@ -141,20 +141,16 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                     </div>
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Menu Item 2</a></li>
+                            <li><a href="#">Dành cho thể thao</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xu hướng hiện đại &nbsp;<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Nav header</li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li><a href="#">One more separated link</a></li>
+                                    <li><a href="#">Apple Watch</a></li>
+                                    <li><a href="#">Xiaomi Miband</a></li>
+                                    <li><a href="#">Samsung Fit</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Menu Item 4</a></li>
+                            <li><a href="#">Đồng hồ đôi</a></li>
                             <li><a href="#">About Us</a></li>
                         </ul>
                     </div>
@@ -167,6 +163,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                 </div>
             </div>
         </div>
+        <!-- show list product-->
         <div id="bodyContainer" >
             <?php echo $content; ?>
         </div>
@@ -188,18 +185,18 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.7703616754943!2d105.7716093149328!3d21.041872485991266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454c91bd56fd5%3A0x9ea2c9acd810f74!2zTmfDtSAyMTcgTWFpIEThu4tjaCwgTWFpIEThu4tjaCwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1616953075103!5m2!1svi!2s" width="300" height="300" frameborder="0" style="border:0" allowfullscreen id="maps"></iframe>
 				</div>
 				<div class="col-lg-4" id="contact">
-					<h3>Contact</h3>
+					<h3>Contact Us</h3>
 					<i class="glyphicon glyphicon-map-marker"></i><span> 217 Mai Dich, Cau Giay, Ha Noi</span><br>
-					<i class="glyphicon glyphicon-earphone"></i><span> 0652479890</span><br>
+					<i class="glyphicon glyphicon-earphone"></i><span> 0352479890</span><br>
 					<i class="glyphicon glyphicon-envelope"></i><span> MobileShop@gmail.com</span><br>
-					<h4 style="line-height: 26px">Nhận email thông báo của chúng tôi khi có sản phẩm mới hay giảm giá:</h4>
-					<form action="" method="POST" class="form-inline" role="form">
-						<div class="form-group">
-							<label class="sr-only" for="">label</label>
-							<input type="email" class="form-control" id="" placeholder="your_email@example.com">
-						</div>
-						<span class="btn btn-primary" onclick="alert('Bạn sẽ nhận được thông báo của chúng tôi khi có ưu đãi mới!')">Gửi</span>
-					</form>
+<!--					<h4 style="line-height: 26px">Đăng ký email để nhận nhiều thông tin hơn từ chúng tôi:</h4>-->
+<!--					<form action="" method="POST" class="form-inline" role="form">-->
+<!--						<div class="form-group">-->
+<!--							<label class="sr-only" for="">label</label>-->
+<!--							<input type="email" class="form-control" id="" placeholder="your_email@example.com">-->
+<!--						</div>-->
+<!--						<span class="btn btn-primary" onclick="alert('Bạn sẽ nhận được thông báo của chúng tôi khi có ưu đãi mới!')">Gửi</span>-->
+<!--					</form>-->
 				</div>
 				<div class="col-lg-12" id="copyright-txt">
 					<b>All right reverse, &#169; copyright of MobileShop.com</b>

@@ -5,7 +5,6 @@
 		<div class="col-lg-6">
 			<form action="" method="POST" role="form">
 				<legend>Đăng Ký</legend>
-			
 				<div class="form-group">
 					<label for="">Tên: </label>
 					<input type="text" class="form-control" id="name">
@@ -34,8 +33,6 @@
 					<label for="">Email: </label>
 					<input type="email" class="form-control" id="email">
 				</div>
-				
-			
 				<div class="btn btn-primary" onclick="register()">Submit</div><br><br>
 				<a href="index/signin" style="float: right;">Đăng nhập</a><br>
 			</form>
