@@ -74,7 +74,7 @@
 li.menu-name {cursor: pointer;}
 .all-product{text-align: center;}
 .carousel-caption .btn{position: relative; top: 40px;}
-#headerSlide{background-color: #3B4856;}
+#headerSlide{background-color: #e9ddc8;}
 td{vertical-align: middle!important;}
 a{cursor: pointer!important;}
 #nav{position: sticky; top: 0; z-index: 2;}
@@ -284,7 +284,7 @@ ul.header-menu li:hover .mn-ef{
 	.product-container{filter: brightness(90%);}
 	.product-img{margin-left: auto;}
 	.product-img{transform: scale(1.374); transition: .35s;}
-	.product-img:hover{background-color: rgba(44, 62, 80, 0.74);}
+	.product-img:hover{background-color: #e9ddc8;}
 	.product-img:before, .product-img:after{
 		position: absolute;
 		top: 0;
@@ -760,7 +760,7 @@ input[id=order_tel]::-webkit-inner-spin-button {
 	margin-top: -1px;
 }
 
-#bodyContainer {
+#content {
 	display: inline-block;
 	margin-top: 15px;
 }
@@ -821,4 +821,12 @@ input[id=order_tel]::-webkit-inner-spin-button {
 
 .container-fluid-slidebar {
 	background: #A49375;
+}
+
+#col-lg-signup {
+	margin-left: 10%;
+}
+
+#col-lg-signin{
+	margin-left: 50%;
 }

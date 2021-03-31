@@ -1,8 +1,7 @@
 <div class="errorMes"></div>
 <div class="container-fluid form" style="padding: 20px">
 	<div class="row">
-		<div class="col-lg-3"></div>
-		<div class="col-lg-6">
+		<div class="col-lg-6" id="col-lg-signup">
 			<form action="" method="POST" role="form">
 				<legend>Đăng Ký</legend>
 				<div class="form-group">

@@ -54,7 +54,6 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 			</div>
 			<?php }
 			?>
-			<li><a href="client/viewcart"><i class="glyphicon glyphicon-shopping-cart"></i> Giỏ hàng</a><div class="mn-ef"></div></li>
 		</ul>
 		<div class="header-detail">
 			<p>217 Mai Dich, Cau Giay, Ha Noi, Việt Nam<br>
@@ -110,8 +109,8 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                         </ul>
 					</li>
 					<li class="menu-name" id="dgg"><a href="product/List/OnSale">Đang giảm giá</a></li>
-					<li class="menu-name" id="spm"><a href="product/List/Newest">Đồng hồ nam</a></li>
-					<li class="menu-name" id="mntq"><a href="product/List/BestSelling">Đồng hồ nữ</a></li>
+					<li class="menu-name" id="dhn"><a href="product/List/Newest">Đồng hồ nam</a></li>
+					<li class="menu-name" id="dhn"><a href="product/List/BestSelling">Đồng hồ nữ</a></li>
 				</ul>
 				<div style="cursor: pointer;"><a href="client/viewcart" style="color: yellow"><i class="glyphicon glyphicon-shopping-cart navbar-right btn-lg" id="cart_count"> 
 					<?php if(isset($_SESSION['cart'])){echo count($_SESSION['cart']);} else echo "0"; ?>
