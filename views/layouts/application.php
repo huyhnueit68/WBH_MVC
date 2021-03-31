@@ -3,6 +3,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 	header('location: user/rememberLogin');
 }
 ?>
+
 <html lang="en">
 <head>
 	<title> Mobile Shop - Genuine phone cheap! </title>
@@ -24,6 +25,26 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 	<link rel="stylesheet" type="text/css" href="public/animate.css">
 
 </head>
+<script>
+    $(document).ready(function(){
+        $('.dropdown-submenu a.test').on("click", function(e){
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    });
+</script>
+<style>
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
+</style>
 <body>
 	<header id='header'>
 		<a href=""><img src="public/images/logo.png"><h2 class="logo">Mobile Shop</h2></a>
@@ -81,8 +102,8 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 					<li class="dropdown menu-name">
 						<a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">Danh mục sản phẩm <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="product/List/All">Tất cả sản phẩm</a></li>
-							<?php 
+                            <li><a href="product/List/All">Tất cả sản phẩm</a></li>
+							<?php
 							require_once 'vendor/Model.php';
 							require_once 'models/admin/categoryModel.php';
 							$md = new categoryModel;
@@ -92,12 +113,17 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 								?>
 								<li><a href="product/List/<?php echo $shortname ?>"><?php echo $data[$i]['tendm'] ?> (<?php echo $data[$i]['xuatsu'] ?>)</a></li>
 							<?php } ?>
-						</ul>
+                            <li class="dropdown-submenu">
+                                <a class="test" href="#">Độc quyền<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Vertu</a></li>
+                                </ul>
+                            </li>
+                        </ul>
 					</li>
 					<li class="menu-name" id="dgg"><a href="product/List/OnSale">Đang giảm giá</a></li>
 					<li class="menu-name" id="spm"><a href="product/List/Newest">Sản phẩm mới</a></li>
 					<li class="menu-name" id="mntq"><a href="product/List/BestSelling">Mua nhiều tuần qua</a></li>
-
 				</ul>
 				<div style="cursor: pointer;"><a href="client/viewcart" style="color: yellow"><i class="glyphicon glyphicon-shopping-cart navbar-right btn-lg" id="cart_count"> 
 					<?php if(isset($_SESSION['cart'])){echo count($_SESSION['cart']);} else echo "0"; ?>
@@ -137,8 +163,8 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 				</div>
 				<div class="col-lg-4" id="contact">
 					<h3>Contact</h3>
-					<i class="glyphicon glyphicon-map-marker"></i><span> Linh Trung, Thủ Đức, tp.HCM</span><br>
-					<i class="glyphicon glyphicon-earphone"></i><span> (08) 391 525</span><br>
+					<i class="glyphicon glyphicon-map-marker"></i><span> 217 Mai Dich, Cau Giay, Ha Noi</span><br>
+					<i class="glyphicon glyphicon-earphone"></i><span> 0652479890</span><br>
 					<i class="glyphicon glyphicon-envelope"></i><span> MobileShop@gmail.com</span><br>
 					<h4 style="line-height: 26px">Nhận email thông báo của chúng tôi khi có sản phẩm mới hay giảm giá:</h4>
 					<form action="" method="POST" class="form-inline" role="form">
