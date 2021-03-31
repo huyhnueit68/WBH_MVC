@@ -802,3 +802,10 @@ input[id=order_tel]::-webkit-inner-spin-button {
 	height: 600px;
 }
 
+.container-fluid-2 {
+	margin-top: 36%;
+}
+
+.container-fluid-product{
+	width: 1300px;
+}

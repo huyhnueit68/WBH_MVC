@@ -1,6 +1,6 @@
 <div id="content">
 	<div class="container-fluid">
-		<div class="row">
+		<div class="container-fluid-product">
 			<div class="col-sm-12 all-product" id="prdCtn">
 				<h3 class="content-menu">
 					<?php echo $title; ?>

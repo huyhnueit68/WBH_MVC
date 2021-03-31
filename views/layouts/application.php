@@ -122,11 +122,10 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 					</div>
 					<span class="btn btn-primary" id="searchBtn">Tìm</span>
 				</div>
-			</div><!-- /.navbar-collapse -->
+			</div>
 		</div>
 	</nav>
 
-    <!--                abc-->
     <div>
         <div class="col-sm-3">
             <div class="sidebar-nav">
@@ -183,7 +182,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 		</div>
 	</div>
 	<footer>
-		<div class="container-fluid">
+		<div class="container-fluid-2">
 			<div class="row">
 				<div class="col-lg-8" style="text-align: center; padding: 20px 0;">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.7703616754943!2d105.7716093149328!3d21.041872485991266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454c91bd56fd5%3A0x9ea2c9acd810f74!2zTmfDtSAyMTcgTWFpIEThu4tjaCwgTWFpIEThu4tjaCwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1616953075103!5m2!1svi!2s" width="300" height="300" frameborder="0" style="border:0" allowfullscreen id="maps"></iframe>

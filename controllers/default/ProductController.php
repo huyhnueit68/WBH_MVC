@@ -35,16 +35,13 @@ class ProductController extends Controller
 			$data = $md->getPrds('khuyenmai',0,8);
 			$title = "<span id='contentTitle' data-type='onsale'>Sản phẩm đang giảm giá</span>";
 			break;
-			case 'All':
-			$data = $md->getPrds('gia',0,8);
-			$title = "<span id='contentTitle' data-type='all'>Sản phẩm đang giảm giá</span>";
-			break;
-			case '':
+            case '':
+            case 'All':
 			$data = $md->getPrds('gia',0,8);
 			$title = "<span id='contentTitle' data-type='all'>Sản phẩm đang giảm giá</span>";
 			break;
 
-			default:
+            default:
 			for ($i=0; $i < count($allCtgrs); $i++) {
 				$case = preg_replace('/\s+/', '', ucfirst($allCtgrs[$i]['tendm']));
 				switch ($type) {
