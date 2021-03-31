@@ -42,7 +42,7 @@
 				<a id="orderCompleteBtn" class="btn btn-primary btn-lg pull-right">Xác nhận</a><br><br>
 			</div>
 
-			<div class="col-lg-4">
+			<div class="col-lg-4" id="info-order">
 				<h4>Thông tin đơn hàng</h4>
 				<table class="table" style="font-size: 14px; background-color: #eaeaea">
 					<tbody>

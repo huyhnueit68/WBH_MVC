@@ -830,3 +830,9 @@ input[id=order_tel]::-webkit-inner-spin-button {
 #col-lg-signin{
 	margin-left: 50%;
 }
+
+#info-order {
+	margin-top: 5%;
+	left: 8.5%;
+	width: 50%
+}

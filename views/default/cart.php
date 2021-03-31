@@ -1,8 +1,6 @@
 <div class="container-fluid form" style="padding: 20px">
-	<div class="row" style="width: 200%;margin-bottom: 200px;">
-		<div class="col-sm-1">
-		</div>
-		<div class="col-sm-10">
+	<div class="row">
+		<div class="col-sm-10" style="width: 75%">
 			<h4><?php echo $title; ?><i class="pull-right"><a href=""> Quay lại mua sắm tiếp!</a></i></h4>
 			<hr style="border: 1px solid #337ab7;">
 			<?php if(isset($_SESSION['cart'])){ ?>
