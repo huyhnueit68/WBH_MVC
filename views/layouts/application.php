@@ -34,17 +34,6 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
         });
     });
 </script>
-<style>
-    .dropdown-submenu {
-        position: relative;
-    }
-
-    .dropdown-submenu .dropdown-menu {
-        top: 0;
-        left: 100%;
-        margin-top: -1px;
-    }
-</style>
 <body>
 	<header id='header'>
 		<a href=""><img src="public/images/logo.png"><h2 class="logo">Mobile Shop</h2></a>
@@ -73,7 +62,6 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 			</p>
 		</div>
 	</header>
-
 	<nav class="navbar navbar-default" role="navigation" id="nav">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -138,23 +126,62 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 		</div>
 	</nav>
 
-	<div id="bodyContainer">
-		<?php echo $content; ?>
-	</div>
-
+    <!--                abc-->
+    <div>
+        <div class="col-sm-3">
+            <div class="sidebar-nav">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="visible-xs navbar-brand">Sidebar menu</span>
+                    </div>
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Menu Item 2</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Menu Item 4</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar-nav">
+                    <a href="http://landofcoder.com"><img class="advertiseMagento1" src="../WBH_MVC/images/magento2.png" alt="advertise"></a>
+                </div>
+                <div class="sidebar-nav">
+                    <a href="https://landofcoder.com/magento-2-order-approval.html"><img class="advertiseMagento2" src="../WBH_MVC/images/magento2orderapproval.png" alt="advertise"></a>
+                </div>
+            </div>
+        </div>
+        <div id="bodyContainer" >
+            <?php echo $content; ?>
+        </div>
+    </div>
 
 	<div class="modal fade" id="modal-id" data-remote="" style="display: none;">
 		<div class="modal-dialog">
 			<div class="modal-content" id="modal-sanpham">
-
-
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<footer>
 		<div class="container-fluid">
 			<div class="row">
