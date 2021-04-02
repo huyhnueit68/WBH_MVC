@@ -5,20 +5,31 @@
 */
 class UserController extends Controller
 {
-	
+    /**
+     * UserController constructor.
+     */
 	function __construct()
 	{
 		$this->folder = "users";
 	}
+
+    /**
+     *
+     */
 	function index(){
 		echo "Trang khong ton tai";
 	}
+
+    /**
+     * @return bool
+     */
 	function login(){
 		require_once 'vendor/Model.php';
 		require_once 'models/users/userModel.php';
 		$md = new userModel; //get module user
 
 		$username = $_POST['username'];
+		echo $username;
 		$password = $_POST['password'];
 		$data = array();
 
@@ -60,6 +71,10 @@ class UserController extends Controller
 		}
 		return false;
 	}
+
+    /**
+     * @return int
+     */
 	function rememberLogin(){
 		require_once 'vendor/Model.php';
 		require_once 'models/users/userModel.php';
@@ -73,6 +88,11 @@ class UserController extends Controller
 			return 0;
 		}
 	}
+
+    /**
+     * @return bool|int
+     * @throws Exception
+     */
 	function register(){
 		require_once 'vendor/Model.php';
 		require_once 'models/users/userModel.php';

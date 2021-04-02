@@ -43,29 +43,40 @@ class ClientController extends Controller
 		require_once 'models/default/productModel.php';
 		$md = new productModel;
 		$masp = array();
-		if(isset($_POST['masp'])){$masp = $_POST['masp'];}
-
-		if(isset($_SESSION['cart'])){
-			$position = array_search($md->getPrdById($masp)['masp'], $_SESSION['cart']);
-			if($position !== false){
-				array_splice($_SESSION['cart'], $position,1);
-				if(isset($_SESSION['user'])){
-					$sql = "DELETE FROM giohang WHERE user_id = ".$_SESSION['user']['id']." AND masp = ".$masp;
-					$md->exe_query($sql);
-				}
-			} else {
-				if(isset($_SESSION['user'])){
-					$sql = "INSERT INTO giohang VALUES(".$_SESSION['user']['id'].",".$masp.")";
-					$md->exe_query($sql);
-				}
-				$_SESSION['cart'][] = $md->getPrdById($masp)['masp'];
-			}
-			echo " ".count($_SESSION['cart']);
-		} else {
-			$_SESSION['cart'][] = $md->getPrdById($masp)['masp'];
-			echo " ".count($_SESSION['cart']);
+		if(isset($_POST['masp'])) {
+		    $masp = $_POST['masp'];
 		}
+
+        try {
+            if(isset($_SESSION['cart'])){
+                $position = array_search($md->getPrdById($masp)['masp'], $_SESSION['cart']);
+
+                if($position !== false){
+                    array_splice($_SESSION['cart'], $position,1);
+                    if(isset($_SESSION['user'])){
+                        $sql = "DELETE FROM giohang WHERE user_id = ".$_SESSION['user']['id']." AND masp = ".$masp;
+                        $md->exe_query($sql);
+                    }
+                } else {
+                    if(isset($_SESSION['user'])){
+                        $sql = "INSERT INTO giohang VALUES(".$_SESSION['user']['id'].",".$masp.",1)";
+                        $md->exe_query($sql);
+                    }
+                    $_SESSION['cart'][] = $md->getPrdById($masp)['masp'];
+                }
+                echo " ".count($_SESSION['cart']);
+            } else {
+                $_SESSION['cart'][] = $md->getPrdById($masp)['masp'];
+                echo " ".count($_SESSION['cart']);
+            }
+        } catch (\Exception $ce) {
+		    echo $ce;
+        }
 	}
+
+    /**
+     *
+     */
 	function delPrd(){
 		require_once 'vendor/Model.php';
 		require_once 'models/default/productModel.php';
@@ -101,17 +112,18 @@ class ClientController extends Controller
 		$this->render('order', $data, $title);
 	}
 	function orderComplete(){
-		$ten = $sdt = $quan = $dc = $type = ""; $tt = 0;
+		$ten = $sdt = $thanhPho = $dc = $type = ""; $tt = 0;
 		$num = $sp = [];
 
 		if(isset($_POST['ten'])){$ten = $_POST['ten'];}
 		if(isset($_POST['sdt'])){$sdt = $_POST['sdt'];}
-		if(isset($_POST['quan'])){$quan = $_POST['quan'];}
+		if(isset($_POST['thanhPho'])){$thanhPho = $_POST['thanhPho'];}
 		if(isset($_POST['dc'])){$dc = $_POST['dc'];}
 		if(isset($_POST['sp'])){$sp = $_POST['sp'];}
 		if(isset($_POST['num'])){$num = $_POST['num'];}
 		if(isset($_POST['type'])){$type = $_POST['type'];}
-		/*$now = date("Y-m-d h:i:s");*/
+
+        /*$now = date("Y-m-d h:i:s");*/
 		$now = new DateTime(null, new DateTimeZone('ASIA/Ho_Chi_Minh'));
 		$now = $now->format('Y-m-d H:i:s');
 		require_once 'vendor/Model.php';
@@ -122,7 +134,8 @@ class ClientController extends Controller
 			$tt += $num[$i]*intval(preg_replace('/\s+/', '', $row['gia']));
 		}
 		date_default_timezone_set('Asia/Ho_Chi_Minh');
-		$sql = "INSERT INTO giaodich VALUES ('',0,'','".$ten."','".$quan."','".$dc."','".$sdt."','".$tt."','".$now."')";
+		$sql = "INSERT INTO giaodich VALUES ('',0,'','".$ten."','".$thanhPho."','".$dc."','".$sdt."','".$tt."','".$now."')";
+		echo $sql; die();
 		$rs = $md->exe_query($sql);
 		if($rs){
 			$last_id = $md->getLastInsertID();

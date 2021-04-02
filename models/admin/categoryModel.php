@@ -7,6 +7,10 @@ class categoryModel extends Model
 	{
 		parent::__construct();
 	}
+
+    /**
+     * @return array
+     */
 	function getAllCtgrs(){
 		$rs = $this->select('*','danhmucsp',null, 'ORDER BY madm DESC');
 		for ($i=0; $i < count($rs); $i++){
@@ -18,21 +22,4 @@ class categoryModel extends Model
 		}
 		return $rs;
 	}
-	/*function getCtgrs($where = null, $orderBy = 'madm ASC'){
-		$sql = "SELECT * FROM danhmucsanpham ".$where." ORDER BY ".$orderBy;
-		$ctgr = array();
-		foreach($this->conn->query($sql) as $row){
-			$ctgr[] = $row;
-		}
-		return $ctgr;
-	}
-	function getCtgrById($madm){
-		$sql = "SELECT * FROM danhmucsanpham WHERE madm = ".$madm;
-		$ctgr = array();
-		foreach($this->conn->query($sql) as $row){
-			$ctgr = $row;
-		}
-		return $ctgr;
-	}*/
-
 }

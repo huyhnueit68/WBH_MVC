@@ -17,7 +17,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<form>
-					<legend>Đăng Nhập Admin Mobile Shop</legend>
+					<legend>Đăng Nhập Admin Watch Store</legend>
 					<span><i id="err" style="color: red"></i></span>
 					<div class="form-group">
 						<label for="">Tên tài khoản</label>

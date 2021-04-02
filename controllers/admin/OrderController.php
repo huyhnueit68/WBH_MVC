@@ -13,6 +13,10 @@ class OrderController extends Controller
 			header("Location: http://localhost/WBH_MVC/indexadmin");
 		}
 	}
+
+    /**
+     *
+     */
 	function index(){
 		require_once 'vendor/Model.php';
 		require_once 'models/admin/orderModel.php';
@@ -20,6 +24,10 @@ class OrderController extends Controller
 		$data = $md->getAllOrders();
 		$this->render('order',$data,'GIAO DỊCH','admin');
 	}
+
+    /**
+     *
+     */
 	function gerOrderById(){
 		require_once 'vendor/Model.php';
 		require_once 'models/admin/orderModel.php';
@@ -36,18 +44,10 @@ class OrderController extends Controller
 		}
 		echo $rs;
 	}
-	/*function shipped(){
-		$slt = '';
-		if(isset($_GET['selected'])){$slt = $_GET['selected'];}
-		if($slt == ''){echo "Bạn chưa chọn giao dịch muốn đổi trạng thái!";}
-		require_once 'vendor/Model.php';
-		require_once 'models/admin/orderModel.php';
-		$md = new orderModel;
-		for ($i=0; $i < count($slt); $i++) {
-			$md->update('giaodich','tinhtrang','1',"magd = '".$slt[$i]."'");
-		}
-		return 1;
-	}*/
+
+    /**
+     *
+     */
 	function action(){
 		$slt = $action = '';
 		if(isset($_GET['selected'])){$slt = $_GET['selected'];}

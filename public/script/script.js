@@ -146,12 +146,13 @@ function delPrd(masp){
   }
 });
 }
+
 function orderComplete(){
   var num = [];
   var sp = [];
   var ten = $('#ten').val();
   var sodt = $('#order_tel').val();
-  var quan = $('#quan').val();
+  var thanhPho = $('#thanhPho').val();
   var dc = $('#addr').val();
   var type = ' ';
   $('.num').each(function() {
@@ -160,13 +161,13 @@ function orderComplete(){
   });
   $('.sanpham').each(function() {
     sp.push($(this).data('masp'));
-  }); 
+  });
   $.ajax({
     url : "Client/orderComplete",
     type : "post",
     dataType:"text",
     data : {
-     ten, sodt, quan, dc, sp, num, type
+     ten, sodt, thanhPho, dc, sp, num, type
    },
    success : function (result){
     $('body').html(result);

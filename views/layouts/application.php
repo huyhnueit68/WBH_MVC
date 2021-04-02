@@ -6,7 +6,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 
 <html lang="en">
 <head>
-	<title> Mobile Shop - Genuine phone cheap! </title>
+	<title> Watch Store - Genuine phone cheap! </title>
 	<meta charset="utf-8">
 	<base href="/WBH_MVC/">
 	<!-- <link rel="SHORTCUT ICON"  href=> -->
@@ -36,7 +36,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 </script>
 <body>
 	<header id='header'>
-		<a href=""><img src="public/images/logo.png"><h2 class="logo">Mobile Shop</h2></a>
+		<a href=""><img src="public/images/logo.png"><h2 class="logo">Watch Store</h2></a>
 		<ul class="header-menu">
 			<?php
 			if((!isset($_SESSION['user']))){ ?>
@@ -71,7 +71,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand logo" href="">Mobile Shop</a>
+				<a class="navbar-brand logo" href="">Watch Store</a>
 				<div id="custom-search-input">
 					<div class="input-group col-md-12" style="background-color: white;">
 						<input type="text" class="form-control input-lg" placeholder="Bạn tìm gì?" id='src-v' />
@@ -187,7 +187,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 					<h3>Contact Us</h3>
 					<i class="glyphicon glyphicon-map-marker"></i><span> 217 Mai Dich, Cau Giay, Ha Noi</span><br>
 					<i class="glyphicon glyphicon-earphone"></i><span> 0352479890</span><br>
-					<i class="glyphicon glyphicon-envelope"></i><span> MobileShop@gmail.com</span><br>
+					<i class="glyphicon glyphicon-envelope"></i><span> WatchStore@gmail.com</span><br>
 <!--					<h4 style="line-height: 26px">Đăng ký email để nhận nhiều thông tin hơn từ chúng tôi:</h4>-->
 <!--					<form action="" method="POST" class="form-inline" role="form">-->
 <!--						<div class="form-group">-->

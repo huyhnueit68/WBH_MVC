@@ -13,6 +13,10 @@ class ProductAdminController extends Controller
 			header("Location: http://localhost/WBH_MVC/indexadmin");
 		}
 	}
+
+    /**
+     *
+     */
 	function index(){
 		require_once 'vendor/Model.php';
 		require_once 'models/admin/productModel.php';

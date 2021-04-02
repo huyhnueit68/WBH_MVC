@@ -24,7 +24,6 @@ class Model
 		{
 			echo "Connection failed: " . $e->getMessage();
 		}
-
 	}
 
     /**
@@ -74,7 +73,7 @@ class Model
 				return 1;
 			}
 		} catch(PDOException $e) {
-			echo "Lỗi ".$e->getCode().$e->getMessage();
+			echo "Error ".$e->getCode().$e->getMessage();
 			return 0;
 		}
 	}
@@ -125,8 +124,7 @@ class Model
 		try {
 			$r = $stmt->execute();
 		}
-		catch (PDOException $e)
-		{
+		catch (PDOException $e) {
 			echo $e->getMessage();
 			die();
 		}

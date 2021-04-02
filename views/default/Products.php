@@ -6,7 +6,7 @@
 					<?php echo $title; ?>
 				</h3>
 				<?php
-				for ($i=0; $i < count($data); $i++){
+				for ($i=0; $i < count($data); $i++) {
 					?>
 					<div class='product-container' onclick="Display_PrdDetail('<?php echo $data[$i]['masp'] ?>')">
 						<a data-toggle='modal' href='product/PrdDetail/<?php echo $data[$i]['masp'] ?>' data-target='#modal-id'>

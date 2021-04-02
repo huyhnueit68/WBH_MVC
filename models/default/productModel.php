@@ -7,6 +7,14 @@ class productModel extends Model
 	{
 		parent::__construct();
 	}
+
+    /**
+     * @param $orderBy
+     * @param $start
+     * @param $last
+     * @param null $where
+     * @return array
+     */
 	function getPrds($orderBy, $start, $last, $where = null){
 		if($where === null){
 			$sql = "SELECT * FROM sanpham ORDER BY ".$orderBy." desc LIMIT ".$start.",".$last;
@@ -20,6 +28,11 @@ class productModel extends Model
 		}
 		return $prd;
 	}
+
+    /**
+     * @param $masp
+     * @return array
+     */
 	function getPrdById($masp){
 		$sql = "SELECT * FROM sanpham WHERE masp = ".$masp;
 		$prd = array();

@@ -54,6 +54,10 @@ class ProductController extends Controller
 		}
 		$this->render('Products',$data, $title);
 	}
+
+    /**
+     * @param $masp
+     */
 	function PrdDetail($masp){
 		require_once 'vendor/Model.php';
 		require_once 'models/default/productModel.php';
