@@ -52,11 +52,11 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
     <header class="main-header">
 
       <!-- Logo -->
-      <a href="indexadmin/Dashboard" class="logo">
+      <a href="admin/Dashboard" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>9X</b>Watch.<b>Admin</b></span>
+        <span class="logo-lg"><b>Watch</b>Store.<b>Admin</b></span>
       </a>
 
       <!-- Header Navbar: style can be found in header.less -->
@@ -172,7 +172,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN MENU</li>
           <li id="dbtab">
-            <a href="indexadmin/Dashboard">
+            <a href="admin/Dashboard">
               <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               <span class="pull-right-container">
               </span>
@@ -185,7 +185,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
             </a>
           </li>
           <li id="sptab">
-            <a href="productadmin">
+            <a href="items">
               <i class="fa fa-th"></i> <span>Sản phẩm</span>
             </a>
           </li>
@@ -208,12 +208,12 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
                 <i class="fa fa-angle-left pull-right"></i>
               </span> -->
             </a>
-            <!-- <ul class="treeview-menu">
-              <li><a href="analytics"><i class="fa fa-circle-o"></i> Thành viên</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Giao dịch</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Sản phẩm nhập vào</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Sản phẩm bán ra</a></li>
-            </ul> -->
+<!--            <ul class="treeview-menu">-->
+<!--              <li><a href="analytics"><i class="fa fa-circle-o"></i> Thành viên</a></li>-->
+<!--              <li><a href="#"><i class="fa fa-circle-o"></i> Giao dịch</a></li>-->
+<!--              <li><a href="#"><i class="fa fa-circle-o"></i> Sản phẩm nhập vào</a></li>-->
+<!--              <li><a href="#"><i class="fa fa-circle-o"></i> Sản phẩm bán ra</a></li>-->
+<!--            </ul>-->
           </li>
         </ul>
       </section>
@@ -233,7 +233,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
       <div class="pull-right hidden-xs">
         <b>Version</b> 2.4.0
       </div>
-      <strong>Copyright &copy; 2014-2016 by AdminLTE <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+      <strong>Copyright &copy; 2021 by Harry Pham <a href="">Watch Store Studio</a>.</strong> All rights
       reserved.
     </footer>
   </div>
@@ -241,13 +241,13 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
   <script>
     function logout(){
       $.ajax({
-        url : "indexadmin/logout",
+        url : "admin/logout",
         type : "post",
         dataType:"text",
         data : {
         },
         success : function (result){
-          location.replace('http://localhost/WBH_MVC/indexadmin');
+          location.replace('http://localhost/WBH_MVC/admin');
         }
       });
     }

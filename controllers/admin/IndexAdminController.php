@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Class IndexAdminController
+ * Class adminController
  */
-class IndexAdminController extends Controller
+class adminController extends Controller
 {
     /**
-     * IndexAdminController constructor.
+     * adminController constructor.
      */
 	function __construct()
 	{
@@ -22,10 +22,11 @@ class IndexAdminController extends Controller
 
     /**
      *
+     * @throws Exception
      */
 	function dashboard(){
 		if(!isset($_SESSION['admin'])){
-			header("Location: http://localhost/WBH_MVC/indexadmin");
+			header("Location: http://localhost/WBH_MVC/admin");
 		}
 		require_once 'vendor/Model.php';
 		require_once 'models/admin/orderModel.php';

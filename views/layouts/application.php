@@ -35,12 +35,11 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
     });
 </script>
 <body>
-	<header id='header'>
+	<header id='header' style="height: 170px;">
 		<a href=""><img src="public/images/logo.png"><h2 class="logo">Watch Store</h2></a>
 		<ul class="header-menu">
 			<?php
 			if((!isset($_SESSION['user']))){ ?>
-			<!-- if(($_SESSION['user']) == ""){ ?> -->
 			<li><a href="index/signin" id="s-s" data-stt='nosignin'>Đăng nhập</a><div class='mn-ef'></div></li>
 			<li><a href="index/signup">Đăng ký</a><div class='mn-ef'></div></li>
 			<?php } else { ?>
@@ -50,6 +49,15 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 					<a href="user/logout"><li>Đăng xuất</li></a>
 					<a href="user/viewinfo"><li onclick="$('#user-setting').toggle()">Thông tin tài khoản</li></a>
 					<a href="user/vieweditpassword"><li>Đổi mật khẩu</li></a>
+                    <?php
+                        if (isset($_SESSION['user'])) {
+                            if ($_SESSION['user']['quyen'] == 1) {
+                                ?>
+                                    <a href="admin/dashboard"><li>Trang quản trị</li></a>
+                                <?php
+                            }
+                        }
+                    ?>
 				</ul>
 			</div>
 			<?php }
@@ -95,7 +103,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 							require_once 'models/admin/categoryModel.php';
 							$md = new categoryModel;
 							$data = $md->getAllCtgrs();
-							for ($i=0; $i < count($data); $i++) { 
+							for ($i=0; $i < count($data); $i++) {
 								$shortname = preg_replace('/\s+/', '', ucfirst($data[$i]['tendm']));
 								?>
 								<li><a href="product/List/<?php echo $shortname ?>"><?php echo $data[$i]['tendm'] ?> (<?php echo $data[$i]['xuatsu'] ?>)</a></li>

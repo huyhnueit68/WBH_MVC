@@ -10,7 +10,7 @@ class MemberController extends Controller
 	{
 		$this->folder = "admin";
 		if(!isset($_SESSION['admin'])){
-			header("Location: http://localhost/WBH_MVC/indexadmin");
+			header("Location: http://localhost/WBH_MVC/admin");
 		}
 	}
 	function index(){
@@ -20,6 +20,10 @@ class MemberController extends Controller
 		$data = $md->getAllMembers();
 		$this->render('member',$data,'THÀNH VIÊN','admin');
 	}
+
+    /**
+     * @throws Exception
+     */
 	function action(){
 		$actionName = $id = '';
 		if(isset($_POST['name'])){$actionName = $_POST['name'];}

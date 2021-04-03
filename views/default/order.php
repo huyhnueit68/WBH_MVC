@@ -4,8 +4,10 @@
 			<div class="col-lg-1"></div>
 			<div class="col-lg-6">
 				<legend>Thông tin giao hàng</legend>
-				<i>Giao hàng tận nhà chỉ áp dụng ở TP HCM</i>
-				<div class="form-group">
+				<i>Giao hàng tận nhà chỉ áp dụng ở TP HN</i>
+                </br></br>
+                <p><i id="err" style="color: red"></i></p>
+                <div class="form-group">
 				<label for="">Tên: </label>
 				<input type="text" class="form-control" id="ten" name="ten" value="">
 			</div>

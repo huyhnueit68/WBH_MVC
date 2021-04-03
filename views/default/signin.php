@@ -15,7 +15,7 @@
 				</div>
 				<input type="checkbox" id="rmbme" value="rl"><label>&nbsp; Nhớ tài khoản</label><br>
 				<div class="btn btn-primary" id="loginBtn">Submit</div><br><br>
-				<a style="float: right;" class="abc">Quên mật khẩu?</a><br>
+<!--				<a style="float: right;" class="abc">Quên mật khẩu?</a><br>-->
 				<a href="index/signup" style="float: right;">Tạo tài khoản mới</a><br><br>
 			</form>
 		</div>

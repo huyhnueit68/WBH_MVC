@@ -37,7 +37,7 @@
 			var username = $('#username').val();
             var password = $('#password').val();
 			$.ajax({
-				url : "indexadmin/login",
+				url : "admin/login",
 				type : "post",
 				dataType:"text",
 				data : {
@@ -45,7 +45,7 @@
 				},
 				success : function (result){
 					if(result == "LoginSuccess"){
-						location.replace('http://localhost/WBH_MVC/indexadmin/dashboard');
+						location.replace('https://localhost/WBH_MVC/admin/dashboard');
 					}
 					$('#err').html(result);
 				}

@@ -28,14 +28,17 @@ class UserController extends Controller
 		require_once 'models/users/userModel.php';
 		$md = new userModel; //get module user
 
+        $result = "";
 		$username = $_POST['username'];
-		echo $username;
 		$password = $_POST['password'];
 		$data = array();
 
 		if($md->getUserByUsername($username)){
 			$data = $md->getUserByUsername($username);
 			if($password == $data['matkhau']){
+			    if($data['quyen'] == 1) {
+                    $_SESSION['admin'] = $data;
+                }
 				echo "LoginSuccess";
 				$_SESSION['user'] = $data;
 				$userCart = array();
@@ -55,7 +58,7 @@ class UserController extends Controller
 					}
 					$md->exe_query($sql);
 				}
-				$sql = "SELECT masp FROM giohang WHERE user_id = ".$data['id']."";
+                $sql = "SELECT masp FROM giohang WHERE user_id = ".$data['id']."";
 				$_SESSION['cart'] = null;
 				$_SESSION['cart'] = $md->getListMasp($sql);
 				if($_POST['rmbme'] == 'true'){

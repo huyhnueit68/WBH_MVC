@@ -112,46 +112,70 @@ class ClientController extends Controller
 		$this->render('order', $data, $title);
 	}
 	function orderComplete(){
-		$ten = $sdt = $thanhPho = $dc = $type = ""; $tt = 0;
+		$ten = $sdt = $thanhPho = $dc = $result = $userID = $type = ""; $tt = 0;
 		$num = $sp = [];
-
 		if(isset($_POST['ten'])){$ten = $_POST['ten'];}
-		if(isset($_POST['sdt'])){$sdt = $_POST['sdt'];}
+		if(isset($_POST['sodt'])){$sdt = $_POST['sodt'];}
 		if(isset($_POST['thanhPho'])){$thanhPho = $_POST['thanhPho'];}
 		if(isset($_POST['dc'])){$dc = $_POST['dc'];}
 		if(isset($_POST['sp'])){$sp = $_POST['sp'];}
 		if(isset($_POST['num'])){$num = $_POST['num'];}
 		if(isset($_POST['type'])){$type = $_POST['type'];}
+		if(isset($_SESSION['user'])) {
+            $userID = $_SESSION['user']['id'];
+        } else {
+		    $userID = 0;
+        }
 
-        /*$now = date("Y-m-d h:i:s");*/
-		$now = new DateTime(null, new DateTimeZone('ASIA/Ho_Chi_Minh'));
-		$now = $now->format('Y-m-d H:i:s');
-		require_once 'vendor/Model.php';
-		require_once 'models/default/productModel.php';
-		$md = new productModel;
-		for ($i=0; $i < count($sp); $i++) {
-			$row = $md->getPrdById($sp[$i]);
-			$tt += $num[$i]*intval(preg_replace('/\s+/', '', $row['gia']));
-		}
-		date_default_timezone_set('Asia/Ho_Chi_Minh');
-		$sql = "INSERT INTO giaodich VALUES ('',0,'','".$ten."','".$thanhPho."','".$dc."','".$sdt."','".$tt."','".$now."')";
-		echo $sql; die();
-		$rs = $md->exe_query($sql);
-		if($rs){
-			$last_id = $md->getLastInsertID();
-			for ($i=0; $i < count($sp); $i++){
-				$data = array($last_id, $sp[$i], $num[$i]);
-				$md->insert('chitietgd',$data);
-			}
-		}
-		if(!($type == "buynow")){
-			$_SESSION['cart'] = null;
-			if(isset($_SESSION['user'])){
-				$md->delete('giohang',"user_id = '".$_SESSION['user']['id']."'");
-			}
-		}
-		$this->render('orderComplete');
+		if ($ten == "") {
+            $result = "Vui lòng nhập vào tên!";
+        } else {
+		    if ($sdt == "") {
+                $result = "Vui lòng nhập vào số điện thoại!";
+            } else {
+		        if ($dc == "") {
+                    $result = "Vui lòng nhập vào địa chỉ!";
+                } else {
+                    /*$now = date("Y-m-d h:i:s");*/
+                    $now = new DateTime(null, new DateTimeZone('ASIA/Ho_Chi_Minh'));
+                    $now = $now->format('Y-m-d H:i:s');
+                    require_once 'vendor/Model.php';
+                    require_once 'models/default/productModel.php';
+                    $md = new productModel;
+                    for ($i=0; $i < count($sp); $i++) {
+                        $row = $md->getPrdById($sp[$i]);
+                        $tt += $num[$i]*intval(preg_replace('/\s+/', '', $row['gia']));
+                    }
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $sql = "INSERT INTO giaodich VALUES (NULL,0,$userID,'".$ten."','".$thanhPho."','".$dc."','".$sdt."','".$tt."','".$now."')";
+                    $rs = $md->exe_query($sql);
+                    if($rs){
+                        $last_id = $md->getLastInsertID();
+                        for ($i=0; $i < count($sp); $i++){
+                            $data = array($last_id, $sp[$i], $num[$i]);
+                            $md->insert('chitietgd',$data);
+                        }
+                    }
+                    if(!($type == "buynow")){
+                        $_SESSION['cart'] = null;
+                        if(isset($_SESSION['user'])){
+                            $md->delete('giohang',"user_id = '".$_SESSION['user']['id']."'");
+                        }
+                    }
+                    $this->render('orderComplete');
+                    $result = "OrderComplete";
+                    echo $result;
+                    return true;
+                }
+            }
+        }
+		echo $result;
+		return false;
 	}
+
+    /**
+     * @return int
+     */
 	function loadmore(){
 		require_once 'vendor/Model.php';
 		require_once 'models/default/productModel.php';

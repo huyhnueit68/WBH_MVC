@@ -69,7 +69,6 @@ function login(){
     },
     success : function (result){
       if(result == 'LoginSuccess'){
-        console.log("123");
         window.location.replace("https://localhost/WBH_MVC");
       } else {
         $('.errorMes')[0].style.display = "block";
@@ -162,17 +161,29 @@ function orderComplete(){
   $('.sanpham').each(function() {
     sp.push($(this).data('masp'));
   });
-  $.ajax({
-    url : "Client/orderComplete",
-    type : "post",
-    dataType:"text",
-    data : {
-     ten, sodt, thanhPho, dc, sp, num, type
-   },
-   success : function (result){
-    $('body').html(result);
+  if (ten.localeCompare("") != 0) {
+    if (sodt.localeCompare("") != 0) {
+      if (dc.localeCompare("") != 0) {
+          $.ajax({
+            url : "Client/orderComplete",
+            type : "post",
+            dataType:"text",
+            data : {
+              ten, sodt, thanhPho, dc, sp, num, type
+            },
+            success : function (result){
+              $('body').html(result);
+            }
+          });
+      } else {
+        alert("Vui lòng nhập vào địa chỉ");
+      }
+    } else {
+      alert("Vui lòng nhập vào số điện thoại");
+    }
+  } else {
+    alert("Vui lòng nhập vào tên");
   }
-});
 }
 function loadmore(start){
   var next = start + 8;
