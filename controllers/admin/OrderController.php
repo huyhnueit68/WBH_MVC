@@ -50,32 +50,80 @@ class OrderController extends Controller
      */
     function action(){
         $slt = $action = '';
-        if(isset($_GET['selected'])){$slt = $_GET['selected'];}
-        if(isset($_GET['action'])){$action = $_GET['action'];}
-        if($slt == ''){echo "Bạn chưa chọn giao dịch!";}
+        $countEdit = 0;
+        $data = [];
+        if(isset($_GET['action'])){
+            $action = $_GET['action'];
+        }
+
+        if ($action != 'edit') {
+            if(isset($_GET['selected'])){
+                $slt = $_GET['selected'];
+                $countEdit = count($slt);
+            }
+            if($slt == ''){
+                echo "Bạn chưa chọn giao dịch!";
+            }
+        } else {
+            $data = $_GET['selected'];
+            $countEdit = 1;
+        }
+
         require_once 'vendor/Model.php';
         require_once 'models/admin/orderModel.php';
         $md = new orderModel;
-        for ($i=0; $i < count($slt); $i++) {
-            switch ($action) {
-                case 'shipped':
-                    $md->update('giaodich','tinhtrang','1',"magd = '".$slt[$i]."'");
-                    break;
-                case 'unshipped':
-                    $md->update('giaodich','tinhtrang','0',"magd = '".$slt[$i]."'");
-                    break;
-                case 'del':
-                    $md->delete('giaodich',"magd = '".$slt[$i]."'");
-                    break;
-                case 'cancel':
-                    $md->update('giaodich','tinhtrang','2',"magd = '".$slt[$i]."'");
-                    break;
+        try {
+            $flag = false;
 
-                default:
-                    echo "Error!";
-                    break;
+            for ($i = 0; $i < $countEdit; $i++) {
+                switch ($action) {
+                    case 'shipped':
+                        $md->update('giaodich','tinhtrang','1',"magd = '".$slt[$i]."'");
+                        $flag = true;
+                        break;
+                    case 'unshipped':
+                        $md->update('giaodich','tinhtrang','0',"magd = '".$slt[$i]."'");
+                        $flag = true;
+                        break;
+                    case 'del':
+                        $md->delete('chitietgd',"magd = '".$slt[$i]."'");
+                        $md->delete('giaodich',"magd = '".$slt[$i]."'");
+                        $flag = true;
+                        break;
+                    case 'cancel':
+                        $md->update('giaodich','tinhtrang','2',"magd = '".$slt[$i]."'");
+                        $flag = true;
+                        break;
+                    case 'edit':
+                        foreach ($data as $key => $value) {
+                            switch ($key){
+                                case 'orderNameCustomer':
+                                    $md->update('giaodich','user_name',$value,"magd = '".$data['orderId']."'");
+                                    break;
+                                case 'thanhPho':
+                                    $md->update('giaodich','user_dst',$value,"magd = '".$data['orderId']."'");
+                                    break;
+                                case 'orderAddress':
+                                    $md->update('giaodich','user_addr',$value,"magd = '".$data['orderId']."'");
+                                    break;
+                                case 'orderSdt':
+                                    $md->update('giaodich','user_phone',$value,"magd = '".$data['orderId']."'");
+                                    break;
+                                case 'orderDate':
+                                    $md->update('giaodich','date',$value,"magd = '".$data['orderId']."'");
+                                    break;
+                            }
+                        }
+                        $flag = true;
+                }
             }
+            if ($flag) {
+                echo "success";
+            } else {
+                echo "Error!";
+            }
+        } catch (\Exception $ce) {
+            echo $ce;
         }
-        echo "success";
     }
 }

@@ -21,7 +21,10 @@
                     <div class="container" style="width: 100%; margin-bottom: 20px; display: none" id="editOrderArea">
                         <form action="" method="POST" role="form">
                             <legend>Thay đổi giao dịch</legend>
-
+                            <div class="form-group">
+                                <label for="">Tên khách hàng</label>
+                                <input type="text" class="form-control" id="orderNameCustomer">
+                            </div>
                             <div class="form-group">
                                 <label for="">Thành phố: </label>
                                 <select class="form-control" name="thanhPho" id="thanhPho">
@@ -94,19 +97,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Địa chỉ cụ thể</label>
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" id="orderAddress">
                             </div>
                             <div class="form-group">
                                 <label for="">SDT</label>
-                                <input type="number" class="form-control" id="">
+                                <input type="number" class="form-control" id="orderSdt">
                             </div>
                             <div class="form-group">
-                                <label for="">Tên sản phẩm</label>
-                                <input type="text" class="form-control" value="<?php echo $data['tensp'] ?>" id="editName">
+                                <label for="">Ngày</label>
+                                <input type="date" class="form-control" id="orderDate">
                             </div>
-
-
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <span class="btn btn-success" id="submitOrder">Xong</span>
+                            <span class="btn btn-default" id="cancelEditBtn">Hủy</span>
                         </form>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
@@ -117,7 +119,7 @@
                             <th>STT</th>
                             <th>Tình trạng</th>
                             <th>Tên KH</th>
-                            <th>Quận</th>
+                            <th>Thành phố</th>
                             <th>DC cụ thể</th>
                             <th>SDT</th>
                             <th>Ngày</th>
@@ -133,7 +135,7 @@
                             $rsp = count($data[$i]['sp']) ?>
                             <tr>
                                 <td><input type="checkbox" class="cbgd" value="<?php echo $data[$i]['magd'] ?>"></td>
-                                <td><span class="glyphicon glyphicon-pencil btn btn-info editBtn" data-value="<?php echo $data[$i]['magd'] ?>"></span></td>
+                                <td><span class="glyphicon glyphicon-pencil btn btn-info editBtn" data-id="<?php echo $data[$i]['magd'] ?>"></span></td>
                                 <td><?php echo $i+1 ?></td>
                                 <td>
                                     <?php if($data[$i]['tinhtrang'] == 1){
@@ -150,7 +152,6 @@
                                 <td><?php echo $data[$i]['user_addr'] ?></td>
                                 <td><?php echo $data[$i]['user_phone'] ?></td>
                                 <td><?php echo $data[$i]['date'] ?></td>
-
                                 <td>
                                     <?php
                                     for($j=0;$j<count($data[$i]['sp']);$j++){
@@ -179,7 +180,6 @@
                                     }
                                     ?>
                                 </td>
-
                                 <td><?php echo number_format($data[$i]['tongtien'], 0, ',', ' ') ?> &#8363;</td>
                             </tr>
                         <?php } ?>
@@ -248,7 +248,7 @@
             'autoWidth'   : false
         })
     })
-    function action(action){
+    function action(action, data = null){
         var selected = [];
         $('.cbgd').each(function(){
             if($(this).is(":checked")){
@@ -259,12 +259,15 @@
             alert("Bạn chưa chọn giao dịch muốn đổi trạng thái!");
             return ;
         }
+        if (action == 'edit') {
+            selected = data;
+        }
         $.ajax({
             url: 'order/action',
             type: 'GET',
             dataType: 'text',
             data: {
-                selected, action
+                selected, action,
             },
             success: function(result){
                 if(result == "success"){
@@ -275,12 +278,33 @@
             }
         })
     }
+    $('#cancelEditBtn').on('click',function(){
+        $('#example1').toggle();
+        $('#editOrderArea').toggle(300);
+    })
     /*Edit order*/
     $('.editBtn').click(function(){
-        alert("Chưa hoàn thiện!");return;
+        $('#submitOrder').attr('data-id',$(this).data('id'));
+        $('#orderNameCustomer').val(($(this).closest('tr').children('td:nth-child(5)').text()).trim());
+        $('#thanhPho').val($(this).closest('tr').children('td:nth-child(6)').text().trim());
+        $('#orderAddress').val($(this).closest('tr').children('td:nth-child(7)').text().trim());
+        $('#orderSdt').val($(this).closest('tr').children('td:nth-child(8)').text().trim());
+        var dateTime = $(this).closest('tr').children('td:nth-child(9)').text().trim();
+        $('#orderDate').val(dateTime.split(' ')[0]);
         $('#editOrderArea').toggle();
         $('#example1').toggle();
-        getOrderById($(this).data('value'));
+    })
+    $('#submitOrder').on('click',function(){
+        var id = $(this).data('id');
+        var data = {
+            orderId: id,
+            orderNameCustomer: $('#orderNameCustomer').val(),
+            thanhPho: $('#thanhPho').val(),
+            orderAddress: $('#orderAddress').val(),
+            orderSdt: $('#orderSdt').val(),
+            orderDate: $('#orderDate').val()
+        };
+        action('edit',data);
     })
     function getOrderById(magd){
         $.ajax({

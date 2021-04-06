@@ -84,7 +84,7 @@ class Model
      * @return int
      */
 	function delete($table, $cond){
-		$sql = "DELETE FROM ".$table." WHERE ".$cond."";
+		$sql = "DELETE FROM ".$table." WHERE ".$cond;
 		$stmt = $this->conn->prepare($sql);
 		try{
 			if($stmt->execute()){

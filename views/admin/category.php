@@ -43,7 +43,6 @@
                 <label for="">Quốc gia</label>
                 <input type="text" class="form-control" id="categoryCountry4Edit">
               </div>
-
               <span class="btn btn-success" id="edit2Btn">Xong</span>
               <span class="btn btn-default" id="cancelEditBtn">Hủy</span>
             </form>
@@ -166,7 +165,7 @@
       url: 'category/action',
       type: 'GET',
       dataType: 'text',
-      data: {name, id,cname, ccountry,name4edit,country4edit},
+      data: {name, id,cname, ccountry, name4edit, country4edit},
       success: function(result){
         if(result == 'OK'){
           alert("Successful!");
