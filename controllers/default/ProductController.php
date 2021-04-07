@@ -66,4 +66,66 @@ class ProductController extends Controller
 		$title = $data['tensp'];
 		require_once 'views/default/ProductDetail.php';
 	}
+
+	function action(){
+	    $action = $result = "";
+	    $data = [];
+        if (isset($_GET['name'])) {
+            $action = $_GET['name'];
+            $data = $_GET['data'];
+        }
+        require_once 'vendor/Model.php';
+        require_once 'models/admin/productModel.php';
+        $md = new productModel();
+        switch ($action) {
+            case 'addNewProduct':
+                if ($md->insertPR('sanpham', $data, '')) {
+                    $result = "Successful";
+                } else {
+                    $result = " Error!";
+                }
+                break;
+            case 'editProduct':
+                $c4edit = $n4edit = '';
+                $setRow = array(
+                    'tensp', 'gia', 'baohanh', 'trongluong', 'chatlieu', 'chongnuoc',
+                    'nangluong', 'loaibh', 'kichthuoc', 'mau', 'danhcho', 'phukien',
+                    'khuyenmai', 'tinhtrang', 'madm', 'anhchinh', 'luotmua', 'luotxem', 'ngay_nhap'
+                );
+                $productId = $data['productId'];
+                array_shift($data);
+                $setVal = $data;
+                $i = 0;
+                foreach ($setVal as $key => $value) {
+                    $setVal[$i] = $setVal[$key];
+                    ++$i;
+                }
+                if ($md->update('sanpham',$setRow, $setVal, 'masp = '.$productId)) {
+                    $result = "Successful";
+                } else {
+                    $result = " Error!";
+                }
+                break;
+            case 'delProduct':
+                foreach ($data as $value) {
+                    if ($md->delete('sanpham','masp = '.$value)){
+                        $result = "Successful";
+                    } else {
+                        $result = " Error!";
+                    }
+                }
+                break;
+            case 'delOnlyProduct':
+                if ($md->delete('sanpham','masp = '.$data)) {
+                    $result = "Successful";
+                } else {
+                    $result = " Error!";
+                }
+                break;
+            default:
+                $result = " Error!";
+                break;
+        }
+        echo $result;
+    }
 }

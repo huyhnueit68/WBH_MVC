@@ -50,6 +50,28 @@ class Model
 
     /**
      * @param $table
+     * @param $value
+     * @param null $row
+     * @return int
+     */
+    function insertPR($table , $value, $row = null){
+        if($row != null){$row = rtrim(implode(',',$row),',');}
+        $value = rtrim(implode('\',\'',$value),',');
+        $value = str_pad($value,strlen($value)+2,'\'',STR_PAD_BOTH);
+        $sql = "INSERT INTO ".$table." (".$row.") VALUES (".'NULL, '.$value.")";
+        $stmt = $this->conn->prepare($sql);
+        try{
+            if($stmt->execute()){
+                return 1;
+            }
+        } catch(PDOException $e) {
+            echo "Lỗi ".$e->getCode();
+            return 0;
+        }
+    }
+
+    /**
+     * @param $table
      * @param $setRow
      * @param $setVal
      * @param $cond

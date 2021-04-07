@@ -152,14 +152,15 @@
   function action(name, id = null){
     var name4edit = $('#categoryName4Edit').val();
     var country4edit = $('#categoryCountry4Edit').val();
+    var ccountry;
     var cname = ccountry = '';
     if(name == 'add'){
-      cname = $('#categoryName').val();
-      ccountry = $('#categoryCountry').val();
-      if(cname == ''){
-        alert('Bạn chưa điền tên danh mục!');
-        return;
-      }
+        cname = $('#categoryName').val();
+        ccountry = $('#categoryCountry').val();
+        if(cname == ''){
+            alert('Bạn chưa điền tên danh mục!');
+            return;
+        }
     }
     $.ajax({
       url: 'category/action',

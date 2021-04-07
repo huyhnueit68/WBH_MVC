@@ -107,7 +107,7 @@
                                 <label for="">Ngày</label>
                                 <input type="date" class="form-control" id="orderDate">
                             </div>
-                            <span class="btn btn-success" id="submitOrder">Xong</span>
+                            <span class="btn btn-success" id="submitOrder">Sửa</span>
                             <span class="btn btn-default" id="cancelEditBtn">Hủy</span>
                         </form>
                     </div>
