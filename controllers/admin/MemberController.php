@@ -31,27 +31,52 @@ class MemberController extends Controller
 		require_once 'vendor/Model.php';
 		require_once 'models/admin/memberModel.php';
 		$md = new memberModel;
+		$result = "";
 		switch ($actionName) {
 			case 'del':
-			$md->delete('thanhvien','id = '.$id);
+                if ($md->delete('thanhvien','id = '.$id)) {
+                    $result = "Successful";
+                } else {
+                    $result = "Error";
+                }
+                break;
+			case 'addMember':
+                $data = [];
+                if(isset($_POST['name2'])){$data[] = $_POST['name2'];} else {$data[] = 'No info';}
+                if(isset($_POST['username'])){$data[] = $_POST['username'];} else {$data[] = 'No info';}
+                if(isset($_POST['password'])){$data[] = $_POST['password'];} else {$data[] = 'No info';}
+                if(isset($_POST['addr'])){$data[] = $_POST['addr'];} else {$data[] = 'No info';}
+                if(isset($_POST['tel'])){$data[] = $_POST['tel'];} else {$data[] = 'No info';}
+                if(isset($_POST['email'])){$data[] = $_POST['email'];} else {$data[] = 'No info';}
+                $now = new DateTime(null, new DateTimeZone('ASIA/Ho_Chi_Minh'));
+                $now = $now->format('Y-m-d H:i:s');
+                $data[] = $now; $data[] = '0';
+                if ($md->insertPR('thanhvien',$data)) {
+                    $result = "Successful";
+                } else {
+                    $result = "Error";
+                }
 			break;
-			case 'add':
-			$data = array('');
-			if(isset($_POST['name2'])){$data[] = $_POST['name2'];} else {$data[] = 'No info';}
-			if(isset($_POST['username'])){$data[] = $_POST['username'];} else {$data[] = 'No info';}
-			if(isset($_POST['password'])){$data[] = $_POST['password'];} else {$data[] = 'No info';}
-			if(isset($_POST['addr'])){$data[] = $_POST['addr'];} else {$data[] = 'No info';}
-			if(isset($_POST['tel'])){$data[] = $_POST['tel'];} else {$data[] = 'No info';}
-			if(isset($_POST['email'])){$data[] = $_POST['email'];} else {$data[] = 'No info';}
-			$now = new DateTime(null, new DateTimeZone('ASIA/Ho_Chi_Minh'));
-			$now = $now->format('Y-m-d H:i:s');
-			$data[] = $now; $data[] = '0';
-			$md->insert('thanhvien',$data);
-			break;
-			
+            case 'editMember':
+                $data = [];
+                if(isset($_POST['id'])){$id = $_POST['id'];} else {$data[] = 'No info';}
+                if(isset($_POST['name2'])){$data[] = $_POST['name2'];} else {$data[] = 'No info';}
+                if(isset($_POST['username'])){$data[] = $_POST['username'];} else {$data[] = 'No info';}
+                if(isset($_POST['password'])){$data[] = $_POST['password'];} else {$data[] = 'No info';}
+                if(isset($_POST['addr'])){$data[] = $_POST['addr'];} else {$data[] = 'No info';}
+                if(isset($_POST['tel'])){$data[] = $_POST['tel'];} else {$data[] = 'No info';}
+                if(isset($_POST['email'])){$data[] = $_POST['email'];} else {$data[] = 'No info';}
+                $setRow = ['ten', 'tentaikhoan', 'matkhau', 'diachi', 'sodt', 'email'];
+                if ($md->update('thanhvien',$setRow, $data, "id = ".$id)) {
+                    $result = "Successful";
+                } else {
+                    $result = "Error";
+                }
+                break;
 			default:
-			echo "Error!";
-			break;
+                $result = "Error!";
+                break;
 		}
+		echo $result;
 	}
 }

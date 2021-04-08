@@ -26,7 +26,6 @@
                 <label for="">Quốc gia</label>
                 <input type="text" class="form-control" id="categoryCountry">
               </div>
-
               <span class="btn btn-success" id="add2Btn">Thêm</span>
               <span class="btn btn-default" id="cancelAddBtn">Hủy</span>
             </form>
@@ -142,8 +141,8 @@
     $('#edit2Btn').attr('data-id',$(this).data('id'));
     $('#example1').toggle();
     $('#editArea').toggle(300);
-    $('#categoryName4Edit').val($(this).closest('tr').children('td:nth-child(3)').text());
-    $('#categoryCountry4Edit').val($(this).closest('tr').children('td:nth-child(4)').text());
+    $('#categoryName4Edit').val($(this).closest('tr').children('td:nth-child(3)').text().trim());
+    $('#categoryCountry4Edit').val($(this).closest('tr').children('td:nth-child(4)').text().trim());
   })
   $('#cancelEditBtn').on('click',function(){
     $('#example1').toggle();
