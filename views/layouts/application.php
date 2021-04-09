@@ -37,30 +37,34 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 <body>
 	<header id='header' style="height: 170px;">
 		<a href=""><img src="public/images/logo.png"><h2 class="logo">Watch Store</h2></a>
-		<ul class="header-menu">
+		<ul class="header-menu" style="width: 150px;">
 			<?php
 			if((!isset($_SESSION['user']))){ ?>
 			<li><a href="index/signin" id="s-s" data-stt='nosignin'>Đăng nhập</a><div class='mn-ef'></div></li>
 			<li><a href="index/signup">Đăng ký</a><div class='mn-ef'></div></li>
 			<?php } else { ?>
-			<li><a onclick="$('#user-setting').toggle()" id="s-s">Chào <?php echo $_SESSION['user']['ten'] ?></a><div class='mn-ef'></div></li>
+			<li><a onclick="$('#user-setting').toggle()" id="s-s" style="color: #A49375">Chào <?php echo $_SESSION['user']['ten'] ?></a><div class='mn-ef'></div></li>
 			<div id='user-setting'>
-				<ul>
+				<ul style="background-color: #A49375">
 					<a href="user/logout"><li>Đăng xuất</li></a>
 					<a href="user/viewinfo"><li onclick="$('#user-setting').toggle()">Thông tin tài khoản</li></a>
-					<a href="user/viewOrder" data-id = "<? echo $_SESSION['user']['id']  ?>"><li>Đơn hàng của tôi</li></a>
+					<a href="user/viewOrder"><li>Đơn hàng của tôi</li></a>
 					<a href="user/vieweditpassword"><li>Đổi mật khẩu</li></a>
-                    <?php
-                        if (isset($_SESSION['user'])) {
-                            if ($_SESSION['user']['quyen'] == 1) {
-                                ?>
-                                    <a href="admin/dashboard"><li>Trang quản trị</li></a>
-                                <?php
-                            }
-                        }
-                    ?>
 				</ul>
 			</div>
+            <div>
+                <ul>
+                    <?php
+                    if (isset($_SESSION['user'])) {
+                        if ($_SESSION['user']['quyen'] == 1) {
+                            ?>
+                            <a href="admin/dashboard" style="color: #A49375"><li>Trang quản trị</li></a>
+                            <?php
+                        }
+                    }
+                    ?>
+                </ul>
+            </div>
 			<?php }
 			?>
 		</ul>
@@ -112,7 +116,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                             <li class="dropdown-submenu">
                                 <a class="test" href="#">Độc quyền<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Đồng hồ cổ &nbsp;</a></li>
+                                    <li><a href="product/List/oldWatch">Đồng hồ cổ &nbsp;</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -159,7 +163,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                                 </ul>
                             </li>
                             <li><a href="product/List/Couple">Đồng hồ đôi</a></li>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="user/aboutUs">About Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -192,19 +196,11 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 				<div class="col-lg-8" style="text-align: center; padding: 20px 0;">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.7703616754943!2d105.7716093149328!3d21.041872485991266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454c91bd56fd5%3A0x9ea2c9acd810f74!2zTmfDtSAyMTcgTWFpIEThu4tjaCwgTWFpIEThu4tjaCwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1616953075103!5m2!1svi!2s" width="300" height="300" frameborder="0" style="border:0" allowfullscreen id="maps"></iframe>
 				</div>
-				<div class="col-lg-4" id="contact">
+				<div class="col-lg-4" id="contact" >
 					<h3>Contact Us</h3>
-					<i class="glyphicon glyphicon-map-marker"></i><span> 217 Mai Dich, Cau Giay, Ha Noi</span><br>
+					<i class="glyphicon glyphicon-map-marker" ></i><span> 217 Mai Dich, Cau Giay, Ha Noi</span><br>
 					<i class="glyphicon glyphicon-earphone"></i><span> 0352479890</span><br>
 					<i class="glyphicon glyphicon-envelope"></i><span> WatchStore@gmail.com</span><br>
-<!--					<h4 style="line-height: 26px">Đăng ký email để nhận nhiều thông tin hơn từ chúng tôi:</h4>-->
-<!--					<form action="" method="POST" class="form-inline" role="form">-->
-<!--						<div class="form-group">-->
-<!--							<label class="sr-only" for="">label</label>-->
-<!--							<input type="email" class="form-control" id="" placeholder="your_email@example.com">-->
-<!--						</div>-->
-<!--						<span class="btn btn-primary" onclick="alert('Bạn sẽ nhận được thông báo của chúng tôi khi có ưu đãi mới!')">Gửi</span>-->
-<!--					</form>-->
 				</div>
 				<div class="col-lg-12" id="copyright-txt">
 					<b>All right reverse, &#169; copyright of MobileShop.com</b>

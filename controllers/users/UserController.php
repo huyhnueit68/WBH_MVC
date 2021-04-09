@@ -235,4 +235,29 @@ class UserController extends Controller
 		$sql = "UPDATE thanhvien SET matkhau = '".$npw."' WHERE id = ".$_SESSION['user']['id'];
 		$md->exe_query($sql);
 	}
+
+    /**
+     * @return array
+     */
+    function viewOrder(){
+        require_once 'vendor/Model.php';
+        require_once 'models/users/userModel.php';
+        $md = new userModel();
+
+        $customerID = "";
+        if (isset($_SESSION['user']['id'])) {
+            $customerID  = $_SESSION['user']['id'];
+        }
+
+        /**
+         * get order by customer ID
+         */
+        $data = $md->getOrderByCustomerID($customerID);
+
+        $this->render('viewOrder',$data,'Giao dịch của tôi');
+    }
+
+    function aboutUs(){
+        return $this->render('aboutUs', '', 'Về Watch Store');
+    }
 }

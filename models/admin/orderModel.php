@@ -51,4 +51,9 @@ class orderModel extends Model
 		$rs = $this->select('*','giaodich',"magd = '".$magd."'");
 		return $rs;
 	}
+
+    function getMyOrder($customerID) {
+        $sql = "SELECT * FROM ";
+    }
+
 }

@@ -51,4 +51,23 @@ class userModel extends Model
 			return true;
 		}
 	}
+
+    /**
+     * @param $customerID
+     * @return array
+     */
+	function getOrderByCustomerID($customerID){
+        $gd = $this->select('*', 'giaodich',"user_id = ".$customerID, '');
+        for ($i=0; $i < count($gd); $i++) {
+            $magdArr[] = $gd[$i]['magd'];
+        }
+        for ($i=0; $i < count($gd); $i++){
+            $sp = $this->select('*','chitietgd as ctgd, sanpham as sp',"ctgd.masp = sp.masp AND ctgd.magd = ".$magdArr[$i]."");
+            for ($j=0; $j < count($sp); $j++) {
+                $cart[$j] = array('masp'=> $sp[$j]['masp'], 'tensp' => $sp[$j]['tensp'],'dongia'=> $sp[$j]['gia'], 'soluong'=>$sp[$j]['soluong']);
+            }
+            $gd[$i]['sp'] = $cart; $cart = null;
+        }
+        return $gd;
+    }
 }

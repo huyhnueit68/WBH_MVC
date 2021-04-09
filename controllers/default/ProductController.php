@@ -43,6 +43,11 @@ class ProductController extends Controller
                 $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm đang giảm giá</span>";
                 break;
 
+            case 'oldWatch':
+                $data = $md->getPrds('khuyenmai', 0, 8, 'madm = 11');
+                $title = "<span id='contentTitle' data-type='onsale'>Đồng hồ cổ</span>";
+                break;
+
             case 'ForSport':
                 $data = $md->getPrds('masp', 0, 8, 'madm = 10');
                 $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm dành cho thể thao</span>";
