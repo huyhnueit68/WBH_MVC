@@ -238,7 +238,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
         data : {
         },
         success : function (result){
-          location.replace('http://localhost/WBH_MVC/admin');
+            window.location.assign('admin');
         }
       });
     }

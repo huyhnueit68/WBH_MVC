@@ -48,6 +48,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 				<ul>
 					<a href="user/logout"><li>Đăng xuất</li></a>
 					<a href="user/viewinfo"><li onclick="$('#user-setting').toggle()">Thông tin tài khoản</li></a>
+					<a href="user/viewOrder" data-id = "<? echo $_SESSION['user']['id']  ?>"><li>Đơn hàng của tôi</li></a>
 					<a href="user/vieweditpassword"><li>Đổi mật khẩu</li></a>
                     <?php
                         if (isset($_SESSION['user'])) {

@@ -98,7 +98,7 @@
               legendText: "{label}",
               indexLabelFontSize: 16,
               indexLabel: "{label} - #percent% ",
-              yValueFormatString: "So Luong: #,##0",
+              yValueFormatString: "Số lượng bán: #,##0",
               dataPoints: <?php echo json_encode($data['dataProductSell'], JSON_NUMERIC_CHECK); ?>
           }]
       });
@@ -112,14 +112,14 @@
           text: ""
       },
       axisY: {
-          suffix: " dong",
+          suffix: " đồng",
           scaleBreaks: {
               autoCalculate: true
           }
       },
       data: [{
           type: "column",
-          yValueFormatString: "#,##0\" dong\"",
+          yValueFormatString: "#,##0\" đồng\"",
           indexLabel: "{y}",
           indexLabelPlacement: "inside",
           indexLabelFontColor: "white",
@@ -137,6 +137,7 @@
       },
       data: [{
           type: "line",
+          yValueFormatString: "#,##0\" đồng\"",
           dataPoints: <?php echo json_encode($data['dataSaleMonth'], JSON_NUMERIC_CHECK); ?>
       }]
   });

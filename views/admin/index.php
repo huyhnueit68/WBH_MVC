@@ -25,7 +25,7 @@
 					</div>
 					<div class="form-group">
 						<label for="">Mật khẩu</label>
-						<input type="text" class="form-control" id="password">
+						<input type="password" class="form-control" id="password">
 					</div>
 					<span class="btn btn-success" onclick="login()">Đăng Nhập</span>
 				</form>
@@ -45,7 +45,7 @@
 				},
 				success : function (result){
 					if(result == "LoginSuccess"){
-						location.replace('https://localhost/WBH_MVC/admin/dashboard');
+						location.replace('admin/dashboard');
 					}
 					$('#err').html(result);
 				}
