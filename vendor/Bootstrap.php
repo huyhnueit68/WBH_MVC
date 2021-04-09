@@ -39,13 +39,10 @@ class Bootstrap
 						$classMethod = new ReflectionMethod($controller,$url[1]);
 						$argumentCount = count($classMethod->getParameters());
 						$argsArr = array();
-						for($i=2;$i<=$argumentCount+1;$i++){
+						for($i = 2;$i <= $argumentCount + 1; $i++){
 							if(isset($url[$i])){
 								$argsArr[] = $url[$i];
-							}/* else {
-								echo "Thieu tham so";
-								return 0;
-							}*/
+							}
 						}	
 						$args = implode(",",$argsArr);
 						$args = rtrim($args);

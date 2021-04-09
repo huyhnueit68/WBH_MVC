@@ -5,11 +5,17 @@
 */
 class ClientController extends Controller
 {
-	
+    /**
+     * ClientController constructor.
+     */
 	function __construct()
 	{
 		$this->folder = "default";
 	}
+
+    /**
+     *
+     */
 	function viewcart(){
 		require_once 'vendor/Model.php';
 		require_once 'models/default/productModel.php';
@@ -27,6 +33,10 @@ class ClientController extends Controller
 
 		$this->render('cart', $data ,$title);
 	}
+
+    /**
+     * @param $masp
+     */
 	function buynow($masp){
 		require_once 'vendor/Model.php';
 		require_once 'models/default/productModel.php';
@@ -38,6 +48,10 @@ class ClientController extends Controller
 
 		$this->render('buynow', $data ,$title);
 	}
+
+    /**
+     *
+     */
 	function addtocart(){
 		require_once 'vendor/Model.php';
 		require_once 'models/default/productModel.php';
@@ -90,6 +104,10 @@ class ClientController extends Controller
 		}
 		echo " ".count($_SESSION['cart']);
 	}
+
+    /**
+     *
+     */
 	function order(){
 		require_once 'vendor/Model.php';
 		require_once 'models/default/productModel.php';
@@ -111,6 +129,11 @@ class ClientController extends Controller
 		array_shift($data);
 		$this->render('order', $data, $title);
 	}
+
+    /**
+     * @return bool
+     * @throws Exception
+     */
 	function orderComplete(){
 		$ten = $sdt = $thanhPho = $dc = $result = $userID = $type = ""; $tt = 0;
 		$num = $sp = [];
@@ -223,6 +246,10 @@ class ClientController extends Controller
 			require 'views/default/loadmore.php';
 		}
 	}
+
+    /**
+     *
+     */
 	function search(){
 		$q = "";
 		if(isset($_GET['q'])){$q = $_GET['q'];}

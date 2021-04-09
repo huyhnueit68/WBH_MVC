@@ -113,13 +113,13 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="views/admin/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <img src="views/admin/AdminLTE/dist/img/huyAvata.jpg" class="user-image" alt="User Image">
                 <span class="hidden-xs"><?php echo $_SESSION['admin']['ten'] ?></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
                 <li class="user-header">
-                  <img src="views/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  <img src="views/admin/AdminLTE/dist/img/huyAvata.jpg" class="img-circle" alt="User Image">
 
                   <p>
                     <?php echo $_SESSION['admin']['ten'] ?> - Web Developer
@@ -149,7 +149,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
         <!-- Sidebar user panel -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="views/admin/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            <img src="views/admin/AdminLTE/dist/img/huyAvata.jpg" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
             <p><?php echo $_SESSION['admin']['ten'] ?></p>
@@ -204,16 +204,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
           <li  id="pttab">
             <a href="analytics">
               <i class="fa fa-bar-chart"></i> <span>Phân tích</span>
-              <!-- <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span> -->
             </a>
-<!--            <ul class="treeview-menu">-->
-<!--              <li><a href="analytics"><i class="fa fa-circle-o"></i> Thành viên</a></li>-->
-<!--              <li><a href="#"><i class="fa fa-circle-o"></i> Giao dịch</a></li>-->
-<!--              <li><a href="#"><i class="fa fa-circle-o"></i> Sản phẩm nhập vào</a></li>-->
-<!--              <li><a href="#"><i class="fa fa-circle-o"></i> Sản phẩm bán ra</a></li>-->
-<!--            </ul>-->
           </li>
         </ul>
       </section>
