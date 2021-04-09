@@ -21,7 +21,6 @@ class productModel extends Model
 		} else {
 			$sql = "SELECT * FROM sanpham WHERE ".$where." ORDER BY ".$orderBy." desc LIMIT ".$start.",".$last;
 		}
-		
 		$prd = array();
 		foreach($this->conn->query($sql) as $row){
 			$prd[] = $row;

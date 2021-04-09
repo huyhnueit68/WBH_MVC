@@ -117,8 +117,8 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                         </ul>
 					</li>
 					<li class="menu-name" id="dgg"><a href="product/List/OnSale">Đang giảm giá</a></li>
-					<li class="menu-name" id="dhn"><a href="product/List/Newest">Đồng hồ nam</a></li>
-					<li class="menu-name" id="dhn"><a href="product/List/BestSelling">Đồng hồ nữ</a></li>
+					<li class="menu-name" id="dhn"><a href="product/List/Male">Đồng hồ nam</a></li>
+					<li class="menu-name" id="dhn"><a href="product/List/Female">Đồng hồ nữ</a></li>
 				</ul>
 				<div style="cursor: pointer;"><a href="client/viewcart" style="color: yellow"><i class="glyphicon glyphicon-shopping-cart navbar-right btn-lg" id="cart_count"> 
 					<?php if(isset($_SESSION['cart'])){echo count($_SESSION['cart']);} else echo "0"; ?>
@@ -148,16 +148,16 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                     </div>
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Dành cho thể thao</a></li>
+                            <li><a href="product/List/ForSport">Dành cho thể thao</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xu hướng hiện đại &nbsp;<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Apple Watch</a></li>
-                                    <li><a href="#">Xiaomi Miband</a></li>
-                                    <li><a href="#">Samsung Fit</a></li>
+                                    <li><a href="product/List/Apple">Apple Watch</a></li>
+                                    <li><a href="product/List/Xiaomi">Xiaomi Miband</a></li>
+                                    <li><a href="product/List/SamSungFit">Samsung Fit</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Đồng hồ đôi</a></li>
+                            <li><a href="product/List/Couple">Đồng hồ đôi</a></li>
                             <li><a href="#">About Us</a></li>
                         </ul>
                     </div>

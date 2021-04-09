@@ -13,44 +13,73 @@ class ProductController extends Controller
 	function index(){
 		$this->List();
 	}
+
+    /**
+     * @param null $type
+     */
 	function List($type = null){
 		require_once 'vendor/Model.php';
 		require_once 'models/default/productModel.php';
 		require_once 'models/admin/categoryModel.php';
+
 		$ctgr = new categoryModel;
 		$allCtgrs = $ctgr->getAllCtgrs();
 		$md = new productModel;
 
 		$data = $title = null;
 		switch ($type) {
-			case 'BestSelling':
-			$data = $md->getPrds('luotmua',0,8);
-			$title = "<span id='contentTitle' data-type='bestselling'>Mua nhiều tuần qua</span>";
-			break;
-			case 'Newest':
-			$data = $md->getPrds('ngay_nhap',0,8);
-			$title = "<span id='contentTitle' data-type='newest'>Sản phẩm mới</span>";
-			break;
+			case 'Female':
+                $data = $md->getPrds('masp',0,8, 'danhcho LIKE \'%Nữ%\'');
+                $title = "<span id='contentTitle' data-type='bestselling'>Sản phẩm đồng hồ nữ</span>";
+                break;
+
+			case 'Male':
+                $data = $md->getPrds('masp', 0, 8, 'danhcho LIKE \'%Nam%\'');
+                $title = "<span id='contentTitle' data-type='newest'>Sản phẩm đồng hồ nam</span>";
+                break;
+
 			case 'OnSale':
-			$data = $md->getPrds('khuyenmai',0,8);
-			$title = "<span id='contentTitle' data-type='onsale'>Sản phẩm đang giảm giá</span>";
-			break;
+                $data = $md->getPrds('khuyenmai', 0, 8, 'khuyenmai > 0');
+                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm đang giảm giá</span>";
+                break;
+
+            case 'ForSport':
+                $data = $md->getPrds('masp', 0, 8, 'madm = 10');
+                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm dành cho thể thao</span>";
+                break;
+            case 'Apple':
+                $data = $md->getPrds('masp', 0, 8, 'madm = 7');
+                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm Apple</span>";
+                break;
+            case 'Xiaomi':
+                $data = $md->getPrds('masp', 0, 8, 'madm = 9');
+                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm xiaomi</span>";
+                break;
+            case 'SamSungFit':
+                $data = $md->getPrds('masp', 0, 8, 'madm = 8');
+                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm samsung</span>";
+                break;
+            case 'Couple':
+                $data = $md->getPrds('masp', 0, 8, 'madm = 11');
+                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm cho cặp đôi</span>";
+                break;
+
             case '':
             case 'All':
-			$data = $md->getPrds('gia',0,8);
-			$title = "<span id='contentTitle' data-type='all'>Sản phẩm đang giảm giá</span>";
-			break;
+                $data = $md->getPrds('gia',0,8);
+                $title = "<span id='contentTitle' data-type='all'>Sản phẩm đang giảm giá</span>";
+                break;
 
             default:
-			for ($i=0; $i < count($allCtgrs); $i++) {
-				$case = preg_replace('/\s+/', '', ucfirst($allCtgrs[$i]['tendm']));
-				switch ($type) {
-					case $case:
-					$data = $md->getPrds('gia',0,8,'madm = '.$allCtgrs[$i]['madm']);
-					$title = "<span id='contentTitle' data-type='".$case."'>Thương hiệu: ".$allCtgrs[$i]['tendm']."</span>";
-					break;
-				}
-			}
+                for ($i=0; $i < count($allCtgrs); $i++) {
+                    $case = preg_replace('/\s+/', '', ucfirst($allCtgrs[$i]['tendm']));
+                    switch ($type) {
+                        case $case:
+                        $data = $md->getPrds('gia',0,8,'madm = '.$allCtgrs[$i]['madm']);
+                        $title = "<span id='contentTitle' data-type='".$case."'>Thương hiệu: ".$allCtgrs[$i]['tendm']."</span>";
+                        break;
+                    }
+                }
 		}
 		$this->render('Products',$data, $title);
 	}
