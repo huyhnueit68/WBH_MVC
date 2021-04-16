@@ -129,7 +129,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    <a href="user/viewinfo" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
                     <a onclick="logout()" class="btn btn-default btn-flat">Sign out</a>

@@ -208,11 +208,11 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 			</div>
 		</div>
 	</footer>
-	<div class="goTop">
-		<a href="#header">
-			<h5 style="color: white" class="glyphicon glyphicon-menu-up"></h5>
-		</a>
-	</div>
+<!--	<div class="goTop">-->
+<!--		<a href="#header">-->
+<!--			<h5 style="color: white" class="glyphicon glyphicon-menu-up"></h5>-->
+<!--		</a>-->
+<!--	</div>-->
 </body>
 </html>
 

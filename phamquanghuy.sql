@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th4 16, 2021 lúc 03:07 PM
--- Phiên bản máy phục vụ: 10.4.17-MariaDB
--- Phiên bản PHP: 8.0.1
+-- Host: 127.0.0.1
+-- Generation Time: Apr 16, 2021 at 05:07 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `phamquanghuy`
+-- Database: `phamquanghuy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitietgd`
+-- Table structure for table `chitietgd`
 --
 
 CREATE TABLE `chitietgd` (
@@ -34,7 +34,7 @@ CREATE TABLE `chitietgd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `chitietgd`
+-- Dumping data for table `chitietgd`
 --
 
 INSERT INTO `chitietgd` (`magd`, `masp`, `soluong`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `chitietgd` (`magd`, `masp`, `soluong`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `danhmucsp`
+-- Table structure for table `danhmucsp`
 --
 
 CREATE TABLE `danhmucsp` (
@@ -58,7 +58,7 @@ CREATE TABLE `danhmucsp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `danhmucsp`
+-- Dumping data for table `danhmucsp`
 --
 
 INSERT INTO `danhmucsp` (`madm`, `tendm`, `xuatsu`) VALUES
@@ -78,7 +78,7 @@ INSERT INTO `danhmucsp` (`madm`, `tendm`, `xuatsu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `giaodich`
+-- Table structure for table `giaodich`
 --
 
 CREATE TABLE `giaodich` (
@@ -94,7 +94,7 @@ CREATE TABLE `giaodich` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `giaodich`
+-- Dumping data for table `giaodich`
 --
 
 INSERT INTO `giaodich` (`magd`, `tinhtrang`, `user_id`, `user_name`, `user_dst`, `user_addr`, `user_phone`, `tongtien`, `date`) VALUES
@@ -106,7 +106,7 @@ INSERT INTO `giaodich` (`magd`, `tinhtrang`, `user_id`, `user_name`, `user_dst`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `giohang`
+-- Table structure for table `giohang`
 --
 
 CREATE TABLE `giohang` (
@@ -118,7 +118,7 @@ CREATE TABLE `giohang` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sanpham`
+-- Table structure for table `sanpham`
 --
 
 CREATE TABLE `sanpham` (
@@ -145,34 +145,34 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `sanpham`
+-- Dumping data for table `sanpham`
 --
 
 INSERT INTO `sanpham` (`masp`, `tensp`, `gia`, `baohanh`, `trongluong`, `chatlieu`, `chongnuoc`, `nangluong`, `loaibh`, `kichthuoc`, `mau`, `danhcho`, `phukien`, `khuyenmai`, `tinhtrang`, `madm`, `anhchinh`, `luotmua`, `luotxem`, `ngay_nhap`) VALUES
-(1, 'Đồng hồ Rolex Datejust 179384-0002', '1 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Bạc', 'Nam', 'Không', '', 'new', 1, 'images/rolex/Rolex-Datejust-179384-0002.png', 119, 2100, '2017-10-30 04:14:16'),
-(2, 'Đồng hồ Rolex Datejust 179174-0031', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Bạc', 'Nam', 'Không', '', 'new', 1, 'images/rolex/Rolex-Datejust-179174-0031.png', 2, 133, '2017-10-30 04:14:16'),
-(3, 'Đồng hồ ROLEX DAYJUST 126300', '2 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Bạc', 'Nam', '1 dây sạc', '', 'new', 1, 'images/rolex/ROLEX-DAYJUST-126300.png', 321, 781, '2017-10-31 10:26:26'),
-(4, 'Đồng hồ Rolex Datejust 179174-0094', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Bạc', 'Nam', 'Không', '', 'new', 1, 'images/rolex/Rolex-Datejust-179174-0094.png', 1230, 3101, '0000-00-00 00:00:00'),
-(5, 'Đồng hồ Piaget 444', '450 000', 12, 300, 'Nhôm, kính', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Vàng kim', 'Nam, nữ', 'Không', '', 'new', 5, 'images/piaget/piaget-444.png', 1231, 4321, '0000-00-00 00:00:00'),
-(6, 'Đồng hồ Patek Philippe 778', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '', 'new', 4, 'images/patek-philippe/Patek-Philippe-778.png', 21, 134, '0000-00-00 00:00:00'),
-(7, 'Đồng hồ Omega 102', '4 280 000', 36, 150, 'Đồng, kính cường lực g4', 1, 'pin', 'Tại nhà máy', '21 x 2 x 0.2', 'Đồng', 'Nam', 'Không', '', 'new', 3, 'images/omega/omega-102.png', 123, 2432, '2017-11-14 00:00:00'),
-(8, 'Đồng hồ montblanc e112', '380000', 6, 213, 'da', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '5', 'new', 6, 'images/montblanc/montblanc-e112.png', 1232, 2314, '2017-11-17 00:00:00'),
-(9, 'Đồng hồ Cartier 503', '410 000', 6, 213, 'da', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '5', 'new', 2, 'images/cartier/Cartier-503.png', 1231, 6344, '2017-11-10 11:33:00'),
-(10, 'Đồng hồ Omega 307', '1 280 000', 12, 200, 'da, kính cao cấp', 1, 'Pin', 'Tại nơi sản xuất', '20 x 2 x 0.2', 'Xanh đen', 'Nam và Nữ', 'Không', '', 'Còn hàng', 3, 'images/omega/Omega 307.png', 1231, 1290, '2017-11-06 16:54:01'),
-(11, 'Đồng hồ Omega CO', '2 280 000', 12, 200, 'da, kính cao cấp', 1, 'Pin', 'Tại nơi sản xuất', '20 x 2 x 0.2', 'Xanh đen', 'Nam và Nữ', 'Không', '', 'Còn hàng', 3, 'images/omega/omega CO.png', 123, 2290, '2017-11-06 16:54:01'),
-(12, 'Đồng hồ Omega Xial', '2910000', 24, 100, 'Bạc, kính cường lực ', 1, 'Pin ', 'Tại nơi sản xuất ', '20 x 2 x 0.2 ', 'Bạc ', 'Nam ', 'Không ', '', 'Còn hàng ', 3, 'images/omega/omega Xial.png ', 335, 2561, '0000-00-00 00:00:00'),
-(13, 'Đồng hồ Cartier 604', '1 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 2, 'images/cartier/cartier 604.png', 119, 2100, '2017-11-06 04:14:16'),
-(14, 'Đồng hồ Cartier 705', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 2, 'images/cartier/cartier 705.png', 2, 133, '2017-10-30 04:14:16'),
-(15, 'Đồng hồ Cartier 806', '2 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Nâu', 'Nam', '1 dây sạc', '20', 'new', 2, 'images/cartier/cartier 806.png', 321, 781, '2017-11-06 10:26:26'),
-(16, 'Đồng hồ Cartier 907', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam', 'Không', '10', 'new', 2, 'images/cartier/cartier 907.png', 1230, 3101, '2017-11-06 05:16:15'),
-(17, 'Đồng hồ Montblanc 1', '1 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 6, 'images/montblanc/montblanc 1.png', 119, 2100, '2017-11-06 04:14:16'),
-(18, 'Đồng hồ Montblanc 2', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 6, 'images/montblanc/montblanc 2.png', 2, 133, '2017-10-30 04:14:16'),
-(19, 'Đồng hồ Montblanc 3', '2 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Đen', 'Nam', '1 dây sạc', '20', 'new', 6, 'images/montblanc/montblanc 3.png', 321, 781, '2017-11-06 10:26:26'),
-(20, 'Đồng hồ Montblanc 4', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '', 'new', 6, 'images/montblanc/montblanc 4.png', 1230, 3101, '2017-11-06 05:16:15'),
-(21, 'Đồng hồ Piaget Z1', '1 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 5, 'images/piaget/piaget z1.png', 119, 2100, '2017-11-06 04:14:16'),
-(22, 'Đồng hồ Piaget Z2', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam', 'Không', '10', 'new', 5, 'images/piaget/piaget z2.png', 2, 133, '2017-10-30 04:14:16'),
-(23, 'Đồng hồ Piaget Z3', '2 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Bạc, xanh dương', 'Nam', '1 dây sạc', '20', 'new', 5, 'images/piaget/piaget z3.png', 321, 781, '2017-11-06 10:26:26'),
-(24, 'Đồng hồ Piaget Z4', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 5, 'images/piaget/piaget z4.png', 1230, 3101, '2017-11-06 05:16:15'),
+(1, 'Đồng hồ Rolex Datejust 179384-0002', '1 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Bạc', 'Nam', 'Không', '', 'new', 1, 'images/rolex/Rolex-Datejust-179384-0002.png', 119, 2100, '2020-05-12 04:14:16'),
+(2, 'Đồng hồ Rolex Datejust 179174-0031', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Bạc', 'Nam', 'Không', '', 'new', 1, 'images/rolex/Rolex-Datejust-179174-0031.png', 2, 133, '2020-02-19 05:14:16'),
+(3, 'Đồng hồ ROLEX DAYJUST 126300', '2 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Bạc', 'Nam', '1 dây sạc', '', 'new', 1, 'images/rolex/ROLEX-DAYJUST-126300.png', 321, 781, '2020-03-18 10:26:26'),
+(4, 'Đồng hồ Rolex Datejust 179174-0094', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Bạc', 'Nam', 'Không', '', 'new', 1, 'images/rolex/Rolex-Datejust-179174-0094.png', 1230, 3101, '2021-04-01 21:35:58'),
+(5, 'Đồng hồ Piaget 444', '450 000', 12, 300, 'Nhôm, kính', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Vàng kim', 'Nam, nữ', 'Không', '', 'new', 5, 'images/piaget/piaget-444.png', 1231, 4321, '2021-04-12 21:36:04'),
+(6, 'Đồng hồ Patek Philippe 778', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '', 'new', 4, 'images/patek-philippe/Patek-Philippe-778.png', 21, 134, '2021-04-11 21:36:10'),
+(7, 'Đồng hồ Omega 102', '4 280 000', 36, 150, 'Đồng, kính cường lực g4', 1, 'pin', 'Tại nhà máy', '21 x 2 x 0.2', 'Đồng', 'Nam', 'Không', '', 'new', 3, 'images/omega/omega-102.png', 123, 2432, '2021-01-14 04:00:00'),
+(8, 'Đồng hồ montblanc e112', '380000', 6, 213, 'da', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '5', 'new', 6, 'images/montblanc/montblanc-e112.png', 1232, 2314, '2021-01-17 06:00:00'),
+(9, 'Đồng hồ Cartier 503', '410 000', 6, 213, 'da', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '5', 'new', 2, 'images/cartier/Cartier-503.png', 1231, 6344, '2021-03-10 11:33:00'),
+(10, 'Đồng hồ Omega 307', '1 280 000', 12, 200, 'da, kính cao cấp', 1, 'Pin', 'Tại nơi sản xuất', '20 x 2 x 0.2', 'Xanh đen', 'Nam và Nữ', 'Không', '', 'Còn hàng', 3, 'images/omega/Omega 307.png', 1231, 1290, '2021-03-06 16:54:01'),
+(11, 'Đồng hồ Omega CO', '2 280 000', 12, 200, 'da, kính cao cấp', 1, 'Pin', 'Tại nơi sản xuất', '20 x 2 x 0.2', 'Xanh đen', 'Nam và Nữ', 'Không', '', 'Còn hàng', 3, 'images/omega/omega CO.png', 123, 2290, '2021-02-06 16:54:01'),
+(12, 'Đồng hồ Omega Xial', '2910000', 24, 100, 'Bạc, kính cường lực ', 1, 'Pin ', 'Tại nơi sản xuất ', '20 x 2 x 0.2 ', 'Bạc ', 'Nam ', 'Không ', '', 'Còn hàng ', 3, 'images/omega/omega Xial.png ', 335, 2561, '2021-04-11 21:37:36'),
+(13, 'Đồng hồ Cartier 604', '1 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 2, 'images/cartier/cartier 604.png', 119, 2100, '2020-11-06 04:14:16'),
+(14, 'Đồng hồ Cartier 705', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 2, 'images/cartier/cartier 705.png', 2, 133, '2020-10-30 04:14:16'),
+(15, 'Đồng hồ Cartier 806', '2 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Nâu', 'Nam', '1 dây sạc', '20', 'new', 2, 'images/cartier/cartier 806.png', 321, 781, '2021-03-06 10:26:26'),
+(16, 'Đồng hồ Cartier 907', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam', 'Không', '10', 'new', 2, 'images/cartier/cartier 907.png', 1230, 3101, '2021-04-06 05:16:15'),
+(17, 'Đồng hồ Montblanc 1', '1 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 6, 'images/montblanc/montblanc 1.png', 119, 2100, '2021-02-07 04:14:16'),
+(18, 'Đồng hồ Montblanc 2', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 6, 'images/montblanc/montblanc 2.png', 2, 133, '2021-03-26 04:14:09'),
+(19, 'Đồng hồ Montblanc 3', '2 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Đen', 'Nam', '1 dây sạc', '20', 'new', 6, 'images/montblanc/montblanc 3.png', 321, 781, '2021-03-04 10:26:26'),
+(20, 'Đồng hồ Montblanc 4', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '', 'new', 6, 'images/montblanc/montblanc 4.png', 1230, 3101, '2020-11-26 05:16:15'),
+(21, 'Đồng hồ Piaget Z1', '1 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 5, 'images/piaget/piaget z1.png', 119, 2100, '2021-01-23 04:14:16'),
+(22, 'Đồng hồ Piaget Z2', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam', 'Không', '10', 'new', 5, 'images/piaget/piaget z2.png', 2, 133, '2020-10-30 04:14:16'),
+(23, 'Đồng hồ Piaget Z3', '2 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Bạc, xanh dương', 'Nam', '1 dây sạc', '20', 'new', 5, 'images/piaget/piaget z3.png', 321, 781, '2021-01-05 10:26:26'),
+(24, 'Đồng hồ Piaget Z4', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 5, 'images/piaget/piaget z4.png', 1230, 3101, '2021-01-07 05:16:15'),
 (26, 'Đồng hồ Apple Watch S5 44mm', '10 392 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '22 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '10', 'new', 7, 'images/apple/apple-watch-s5-44mm-vien-nhom-day-cao-su-10-600x600.png', 119, 2100, '2021-03-23 04:14:16'),
 (27, 'Đồng hồ Apple Watch S6 40mm viền nhôm', '10 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đỏ', 'Nam và Nữ', 'Không', '10', 'new', 7, 'images/apple/apple-watch-s6-40mm-vien-nhom-day-cao-su-red-ava-600x600.png', 2, 133, '2021-03-23 04:14:16'),
 (28, 'Đồng hồ Apple Watch SE 40mm viền nhôm dây cao su hồng', '8 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Hồng', 'Nữ', '1 dây sạc', '20', 'new', 7, 'images/apple/1-600x600.png', 321, 781, '2021-03-23 04:14:16'),
@@ -195,20 +195,20 @@ INSERT INTO `sanpham` (`masp`, `tensp`, `gia`, `baohanh`, `trongluong`, `chatlie
 (45, 'Đồng hồ Samsung Galaxy Watch Active 2 40mm viền thép dây da', '7 380 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Hồng', 'Nữ', 'Không', '10', 'new', 8, 'images/samsung/samsung-galaxy-watch-3-41mm-thum-400x400.png', 1230, 3101, '2021-03-24 03:12:26'),
 (46, 'Đồng hồ thông minh Mi Watch', '2 280 000', 24, 200, 'Inox, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 9, 'images/xiaomi/mi-watch-255520-015535-400x400.png', 119, 2100, '2021-03-06 04:14:16'),
 (47, 'Đồng hồ Mi Band 5', '680 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam và Nữ', 'Không', '10', 'new', 9, 'images/xiaomi/mi-band-5-thum-400x400.png', 2, 133, '2021-03-06 04:14:16'),
-(48, 'Đồng hồ đôi Citizen EW1580-50E/BM6770-51E', '9 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Bạc', 'Nam và Nữ', '1 dây sạc', '20', 'new', 11, 'images/couple/citizen-eu6090-54h-bi5070-57h-nam-nu-avatar-1-1-400x400.png', 321, 781, '2017-11-06 10:26:26'),
-(49, 'Đồng hồ đôi Casio LTP-V004GL-7AUDF/MTP-V004GL-7AUDF', '1 980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/casio-ltp-v004gl-7audf-mtp-v004gl-7audf-nam-nuthumb-400x400.png', 1230, 3101, '2017-11-06 05:16:15'),
-(50, 'Đồng hồ đôi Elio EL067-01/EL067-02', '1 880 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/elio-el067-01-el067-02-nam-nu-400x400.png', 1230, 3101, '2017-11-06 05:16:15'),
-(51, 'Đồng hồ đôi Elio EL061-01/EL061-02', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/elio-el061-01-el061-02-nam-nu-400x400.png', 1230, 3101, '2017-11-06 05:16:15'),
-(52, 'Đồng hồ đôi Elio EL063-01/EL063-02', '1 280 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/elio-el063-01-el063-02-nam-nu-600x600.png', 1230, 3101, '2017-11-06 05:16:15'),
-(53, 'Đồng hồ đôi Q&Q S399J202Y/S398J202Y', '1 080 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Bạc', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/qq-s399j202y-s398j202y-nam-nu-1-400x400.png', 1230, 3101, '2017-11-06 05:16:15'),
-(54, 'Đồng hồ đôi Citizen EU6090-54H/BI5070-57H', ' 1 380 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/citizen-eu6090-54h-bi5070-57h-nam-nu-avatar-1-1-400x400.png', 1230, 3101, '2017-11-06 05:16:15'),
-(55, 'Đồng hồ Casio G-Shock Nữ GMD-B800SU-3 - Mới', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Xanh', 'Nữ', 'Không', '10', 'new', 10, 'images/sport/2.png', 1230, 3101, '2017-11-06 05:16:15'),
-(56, 'Đồng hồ Casio STANDARD AEQ-110W-1BV', '750 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 10, 'images/sport/1.png', 1230, 3101, '2017-11-06 05:16:15');
+(48, 'Đồng hồ đôi Citizen EW1580-50E/BM6770-51E', '9 280 000', 36, 150, 'bạc, kính cường lực g4', 1, 'pin, điện', 'Tại nhà máy', '21 x 2 x 0.2', 'Bạc', 'Nam và Nữ', '1 dây sạc', '20', 'new', 11, 'images/couple/citizen-eu6090-54h-bi5070-57h-nam-nu-avatar-1-1-400x400.png', 321, 781, '2021-01-24 10:26:26'),
+(49, 'Đồng hồ đôi Casio LTP-V004GL-7AUDF/MTP-V004GL-7AUDF', '1 980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/casio-ltp-v004gl-7audf-mtp-v004gl-7audf-nam-nuthumb-400x400.png', 1230, 3101, '2021-02-06 05:16:15'),
+(50, 'Đồng hồ đôi Elio EL067-01/EL067-02', '1 880 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/elio-el067-01-el067-02-nam-nu-400x400.png', 1230, 3101, '2020-11-06 05:16:15'),
+(51, 'Đồng hồ đôi Elio EL061-01/EL061-02', '1 580 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/elio-el061-01-el061-02-nam-nu-400x400.png', 1230, 3101, '2021-03-05 05:16:15'),
+(52, 'Đồng hồ đôi Elio EL063-01/EL063-02', '1 280 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/elio-el063-01-el063-02-nam-nu-600x600.png', 1230, 3101, '2021-11-06 05:16:15'),
+(53, 'Đồng hồ đôi Q&Q S399J202Y/S398J202Y', '1 080 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Bạc', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/qq-s399j202y-s398j202y-nam-nu-1-400x400.png', 1230, 3101, '2021-03-07 05:16:15'),
+(54, 'Đồng hồ đôi Citizen EU6090-54H/BI5070-57H', ' 1 380 000', 24, 210, 'Inox cao cấp, kính cường lực', 1, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Nâu', 'Nam và Nữ', 'Không', '10', 'new', 11, 'images/couple/citizen-eu6090-54h-bi5070-57h-nam-nu-avatar-1-1-400x400.png', 1230, 3101, '2021-04-01 05:16:15'),
+(55, 'Đồng hồ Casio G-Shock Nữ GMD-B800SU-3 - Mới', '980 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Xanh', 'Nữ', 'Không', '10', 'new', 10, 'images/sport/2.png', 1230, 3101, '2021-03-06 05:16:15'),
+(56, 'Đồng hồ Casio STANDARD AEQ-110W-1BV', '750 000', 24, 210, 'Inox cao cấp, kính cường lực', 0, 'pin', 'Tại cửa hàng', '20 x 2 x 0.2', 'Đen', 'Nam', 'Không', '10', 'new', 10, 'images/sport/1.png', 1230, 3101, '2021-02-16 05:16:15');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sanphamyeuthich`
+-- Table structure for table `sanphamyeuthich`
 --
 
 CREATE TABLE `sanphamyeuthich` (
@@ -217,7 +217,7 @@ CREATE TABLE `sanphamyeuthich` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `sanphamyeuthich`
+-- Dumping data for table `sanphamyeuthich`
 --
 
 INSERT INTO `sanphamyeuthich` (`user_id`, `masp`) VALUES
@@ -230,7 +230,7 @@ INSERT INTO `sanphamyeuthich` (`user_id`, `masp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `thanhvien`
+-- Table structure for table `thanhvien`
 --
 
 CREATE TABLE `thanhvien` (
@@ -246,118 +246,118 @@ CREATE TABLE `thanhvien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `thanhvien`
+-- Dumping data for table `thanhvien`
 --
 
 INSERT INTO `thanhvien` (`id`, `ten`, `tentaikhoan`, `matkhau`, `diachi`, `sodt`, `email`, `date`, `quyen`) VALUES
-(1, 'Thằng tester', 'tester', '123', 'No info', 'Không cho', 'ccne@cc.cc', '2017-10-30 20:50:48', 0),
-(2, 'Admin bá đạo', 'admin', '123', 'sao biết dc', '1234566', 'adf@afd.com', '2017-11-04 14:40:53', 1),
-(3, 'change1', 'tester2', '123', '123', 'sdt1', 'asf@a.oads', '2017-11-04 11:59:21', 0),
-(4, 'test\'s %/\\', 'tester3', '123', '123', '12', 'adf@afd.com', '0000-00-00 00:00:00', 0),
-(5, 'Lê A', 'tester4', '123', '10', '0935714733', 'nvduong15@gmail.com', '0000-00-00 00:00:00', 0),
-(6, 'Lê A', 'tester5', '123', '10', '0935714733', 'nvduong15@gmail.com', '0000-00-00 00:00:00', 0),
-(7, 'David Villa', 'tester6', '123', 'Anabella', '0935777888', 'adf@afd.com', '2017-10-31 06:46:17', 0),
-(8, 'Lê A', 'tester7', '123', '10', '0935714733', 'nvduong15@gmail.com', '2017-11-01 12:47:55', 0),
-(9, 'tester11', 'tester11', 'tester11', 'tester11', '', 'tester11', '2021-04-09 22:56:22', 0),
-(21, 'tester11', 'tester11d', 'tester11', 'tester11', '58', 'tester11', '2021-04-16 00:04:03', 0);
+(1, 'Tester', 'tester', '123', 'Hà Nội', '021435247', 'ccne@cc.cc', '2021-04-01 21:30:51', 0),
+(2, 'Admin', 'admin', '123', 'Bắc Giang', '013457253', 'adf@afd.com', '2021-04-01 21:30:36', 1),
+(3, 'Nguyễn Khánh Linh', 'khanhlinh', '123', 'Hà Nội', '02452345', 'asf@a.oads', '2021-04-01 21:30:27', 0),
+(4, 'Hoàng Trường An', 'truongan', '123', 'Phú Thọ', '026472245', 'adf@afd.com', '2021-05-01 21:30:20', 0),
+(5, 'Lê Hoàng Tuấn', 'tuanhoang', '123', 'Vinh', '0935714733', 'tuanhoang@gmail.com', '2021-04-16 21:32:07', 0),
+(6, 'An Jien', 'Jenfiad Jien', '123', 'Canada', '0935714733', 'anjien@gmail.com', '2021-04-16 21:32:52', 0),
+(7, 'David Villa', 'tester1', '123', 'Anabella', '0935777888', 'adf@afd.com', '2021-04-16 21:33:02', 0),
+(8, 'Phạm An Khang', 'tester2', '123', '10', '0935714733', 'nvduong15@gmail.com', '2021-04-16 21:34:12', 0),
+(9, 'tester11', 'tester3', '123', 'tester11', '024352424', 'taerh@gad.com', '2021-04-16 21:33:50', 0),
+(21, 'tester11', 'tester4', '123', 'tester11', '0243524', 'haid@gmak.com', '2021-04-16 21:33:59', 0);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `chitietgd`
+-- Indexes for table `chitietgd`
 --
 ALTER TABLE `chitietgd`
   ADD PRIMARY KEY (`magd`,`masp`),
   ADD KEY `masp` (`masp`);
 
 --
--- Chỉ mục cho bảng `danhmucsp`
+-- Indexes for table `danhmucsp`
 --
 ALTER TABLE `danhmucsp`
   ADD PRIMARY KEY (`madm`);
 
 --
--- Chỉ mục cho bảng `giaodich`
+-- Indexes for table `giaodich`
 --
 ALTER TABLE `giaodich`
   ADD PRIMARY KEY (`magd`);
 
 --
--- Chỉ mục cho bảng `giohang`
+-- Indexes for table `giohang`
 --
 ALTER TABLE `giohang`
   ADD PRIMARY KEY (`user_id`,`masp`),
   ADD KEY `fk_gh_sp` (`masp`);
 
 --
--- Chỉ mục cho bảng `sanpham`
+-- Indexes for table `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`masp`),
   ADD KEY `fk_sp_dmsp` (`madm`);
 
 --
--- Chỉ mục cho bảng `sanphamyeuthich`
+-- Indexes for table `sanphamyeuthich`
 --
 ALTER TABLE `sanphamyeuthich`
   ADD PRIMARY KEY (`user_id`,`masp`);
 
 --
--- Chỉ mục cho bảng `thanhvien`
+-- Indexes for table `thanhvien`
 --
 ALTER TABLE `thanhvien`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `danhmucsp`
+-- AUTO_INCREMENT for table `danhmucsp`
 --
 ALTER TABLE `danhmucsp`
   MODIFY `madm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT cho bảng `giaodich`
+-- AUTO_INCREMENT for table `giaodich`
 --
 ALTER TABLE `giaodich`
   MODIFY `magd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT cho bảng `sanpham`
+-- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
   MODIFY `masp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT cho bảng `thanhvien`
+-- AUTO_INCREMENT for table `thanhvien`
 --
 ALTER TABLE `thanhvien`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `chitietgd`
+-- Constraints for table `chitietgd`
 --
 ALTER TABLE `chitietgd`
   ADD CONSTRAINT `chitietgd_ibfk_1` FOREIGN KEY (`magd`) REFERENCES `giaodich` (`magd`),
   ADD CONSTRAINT `chitietgd_ibfk_2` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`masp`);
 
 --
--- Các ràng buộc cho bảng `giohang`
+-- Constraints for table `giohang`
 --
 ALTER TABLE `giohang`
   ADD CONSTRAINT `fk_gh_sp` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`masp`),
   ADD CONSTRAINT `fk_gh_tv` FOREIGN KEY (`user_id`) REFERENCES `thanhvien` (`id`);
 
 --
--- Các ràng buộc cho bảng `sanpham`
+-- Constraints for table `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `fk_sp_dmsp` FOREIGN KEY (`madm`) REFERENCES `danhmucsp` (`madm`);
