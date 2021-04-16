@@ -204,8 +204,10 @@ class ClientController extends Controller
 		require_once 'models/default/productModel.php';
 		require_once 'models/admin/categoryModel.php';
 		$ctgr = new categoryModel;
+
 		$allCtgrs = $ctgr->getAllCtgrs();
 		$md = new productModel;
+
 		$q = "";
 		if(isset($_GET['q'])){$q = $_GET['q'];}
 		$st = $sql = $type = "";
@@ -215,17 +217,30 @@ class ClientController extends Controller
 			case 'bestselling':
 			$data_tmp = $md->getPrds('luotmua',$st,8);
 			break;
+
 			case 'newest':
 			$data_tmp = $md->getPrds('ngay_nhap',$st,8);
 			break;
+
 			case 'onsale':
 			$data_tmp = $md->getPrds('khuyenmai',$st,8);
 			break;
+
+            case 'spNam':
+            $data_tmp = $md->getPrds('masp', $st, 8, 'danhcho LIKE \'%Nam%\'');
+            break;
+
+            case 'spNu':
+            $data_tmp = $md->getPrds('masp', $st, 8, 'danhcho LIKE \'%Nữ%\'');
+            break;
+
 			case 'all':
 			$data_tmp = $md->getPrds('gia',$st,8);
 			break;
+
 			$data_tmp = $md->getPrds('gia',$st,8,'madm = 6');
 			break;
+
 			case 'search':
 			$data_tmp = $md->getPrds('gia',$st,8,"tensp like '%".$q."%'");
 			break;
@@ -240,6 +255,7 @@ class ClientController extends Controller
 				}
 			}
 		}
+
 		if(empty($data_tmp)){return 0;};
 		for ($i=0; $i < count($data_tmp); $i++) {
 			$data[$i] = $data_tmp[$i];

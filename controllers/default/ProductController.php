@@ -30,12 +30,12 @@ class ProductController extends Controller
 		switch ($type) {
 			case 'Female':
                 $data = $md->getPrds('masp',0,8, 'danhcho LIKE \'%Nữ%\'');
-                $title = "<span id='contentTitle' data-type='bestselling'>Sản phẩm đồng hồ nữ</span>";
+                $title = "<span id='contentTitle' data-type='spNu'>Sản phẩm đồng hồ nữ</span>";
                 break;
 
 			case 'Male':
                 $data = $md->getPrds('masp', 0, 8, 'danhcho LIKE \'%Nam%\'');
-                $title = "<span id='contentTitle' data-type='newest'>Sản phẩm đồng hồ nam</span>";
+                $title = "<span id='contentTitle' data-type='spNam'>Sản phẩm đồng hồ nam</span>";
                 break;
 
 			case 'OnSale':
@@ -45,32 +45,37 @@ class ProductController extends Controller
 
             case 'oldWatch':
                 $data = $md->getPrds('khuyenmai', 0, 8, 'madm = 11');
-                $title = "<span id='contentTitle' data-type='onsale'>Đồng hồ cổ</span>";
+                $title = "<span id='contentTitle' data-type='spPK'>Phụ kiện</span>";
                 break;
 
             case 'ForSport':
                 $data = $md->getPrds('masp', 0, 8, 'madm = 10');
-                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm dành cho thể thao</span>";
+                $title = "<span id='contentTitle' data-type='spSport'>Sản phẩm dành cho thể thao</span>";
                 break;
+
             case 'Apple':
                 $data = $md->getPrds('masp', 0, 8, 'madm = 7');
-                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm Apple</span>";
+                $title = "<span id='contentTitle' data-type='apple'>Sản phẩm Apple</span>";
                 break;
+
             case 'Xiaomi':
                 $data = $md->getPrds('masp', 0, 8, 'madm = 9');
-                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm xiaomi</span>";
+                $title = "<span id='contentTitle' data-type='xiaomi'>Sản phẩm xiaomi</span>";
                 break;
+
             case 'SamSungFit':
                 $data = $md->getPrds('masp', 0, 8, 'madm = 8');
-                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm samsung</span>";
+                $title = "<span id='contentTitle' data-type='samsung'>Sản phẩm samsung</span>";
                 break;
+
             case 'Couple':
                 $data = $md->getPrds('masp', 0, 8, 'madm = 11');
-                $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm cho cặp đôi</span>";
+                $title = "<span id='contentTitle' data-type='couple'>Sản phẩm cho cặp đôi</span>";
                 break;
+
             case 'phuKien':
                 $data = $md->getPrds('masp', 0, 8, 'phukien NOT LIKE "%Không%"');
-                $title = "<span id='contentTitle' data-type='onsale'>Phụ kiện</span>";
+                $title = "<span id='contentTitle' data-type='spPk'>Phụ kiện</span>";
                 break;
 
             case '':
