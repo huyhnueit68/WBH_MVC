@@ -8,3 +8,11 @@ các phiên làm việc chính: Trang bán hàng, trang quản trị, bằng vi�
 - Bước 1: Tạo CSDL với tên "phamquanghuy"
 - Bước 2: Import dữ liệu vào trong csdl vừa tạo (file dữ liệu phamquanghuy.sql)
 - Bước 3: Truy cập trang web theo đường dẫn: domain/phamquanghuy- ví dụ: https://localhost/phamquanghuy
+
+### Tài khoản đăng nhập trang web
+- Admin: 
+    - user name: admin 
+    - pass: 123
+- Customer:
+    - user name: tester 
+    - pass: 123

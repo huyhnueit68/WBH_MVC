@@ -244,7 +244,7 @@ function editPw(){
   });
 }
 function search(){
-  var q = $('#srch-val').val();
+  var q = $('#srch-val').val(); //gia tri nhap vao
   $('#bodyContainer').empty();
   $.ajax({
     url : "client/search",
