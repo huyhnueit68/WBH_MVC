@@ -26,7 +26,7 @@ class adminController extends Controller
      */
 	function dashboard(){
 		if(!isset($_SESSION['admin'])){
-			header("Location: http://localhost/WBH_MVC/admin");
+			header("Location: http://localhost/phamquanghuy/admin");
 		}
 		require_once 'vendor/Model.php';
 		require_once 'models/admin/orderModel.php';

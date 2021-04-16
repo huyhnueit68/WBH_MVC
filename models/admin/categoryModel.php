@@ -22,4 +22,29 @@ class categoryModel extends Model
 		}
 		return $rs;
 	}
+
+    /**
+     * @param $name
+     * @return bool
+     */
+	function validateName($name, $id = null){
+	    $name = "'".$name."'";
+        $rs = $this->select('*','danhmucsp','tendm = '.$name.' ');
+        if ($id) {
+            if (!empty($rs)){
+                if ($id == $rs[0]['madm']) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            if (count($rs) > 0){
+                return true;
+            }
+            return false;
+        }
+    }
 }

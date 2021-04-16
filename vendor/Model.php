@@ -131,7 +131,7 @@ class Model
 		} else {
 			$sql = "SELECT ".$what." FROM ".$table." WHERE ".$cond." ".$option;
 		}
-		$stmt = $this->conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}

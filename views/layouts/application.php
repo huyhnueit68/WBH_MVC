@@ -8,7 +8,7 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 <head>
 	<title> Watch Store - Genuine phone cheap! </title>
 	<meta charset="utf-8">
-	<base href="/WBH_MVC/">
+	<base href="/phamquanghuy/">
 	<!-- <link rel="SHORTCUT ICON"  href=> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="public/css/style.css">
@@ -40,8 +40,8 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 		<ul class="header-menu" style="width: 150px;">
 			<?php
 			if((!isset($_SESSION['user']))){ ?>
-			<li><a href="index/signin" id="s-s" data-stt='nosignin'>Đăng nhập</a><div class='mn-ef'></div></li>
-			<li><a href="index/signup">Đăng ký</a><div class='mn-ef'></div></li>
+			<li><a href="index/signin" id="s-s" data-stt='nosignin' style="color: #A49375">Đăng nhập</a><div class='mn-ef'></div></li>
+			<li><a href="index/signup" style="color: #A49375">Đăng ký</a><div class='mn-ef'></div></li>
 			<?php } else { ?>
 			<li><a onclick="$('#user-setting').toggle()" id="s-s" style="color: #A49375">Chào <?php echo $_SESSION['user']['ten'] ?></a><div class='mn-ef'></div></li>
 			<div id='user-setting'>
@@ -114,9 +114,9 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
 								<li><a href="product/List/<?php echo $shortname ?>"><?php echo $data[$i]['tendm'] ?> (<?php echo $data[$i]['xuatsu'] ?>)</a></li>
 							<?php } ?>
                             <li class="dropdown-submenu">
-                                <a class="test" href="#">Độc quyền<span class="caret"></span></a>
+                                <a class="test" href="#">Khác <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="product/List/oldWatch">Đồng hồ cổ &nbsp;</a></li>
+                                    <li><a href="product/List/phuKien">Phụ Kiện</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -168,10 +168,10 @@ if(isset($_COOKIE['user']) && !isset($_SESSION['user'])){
                     </div>
                 </div>
                 <div class="sidebar-nav">
-                    <a href="http://landofcoder.com"><img class="advertiseMagento1" src="../WBH_MVC/images/magento2.png" alt="advertise"></a>
+                    <a href="http://landofcoder.com"><img class="advertiseMagento1" src="../phamquanghuy/images/magento2.png" alt="advertise"></a>
                 </div>
                 <div class="sidebar-nav">
-                    <a href="https://landofcoder.com/magento-2-order-approval.html"><img class="advertiseMagento2" src="../WBH_MVC/images/magento2orderapproval.png" alt="advertise"></a>
+                    <a href="https://landofcoder.com/magento-2-order-approval.html"><img class="advertiseMagento2" src="../phamquanghuy/images/magento2orderapproval.png" alt="advertise"></a>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ class MemberController extends Controller
 	{
 		$this->folder = "admin";
 		if(!isset($_SESSION['admin'])){
-			header("Location: http://localhost/WBH_MVC/admin");
+			header("Location: http://localhost/phamquanghuy/admin");
 		}
 	}
 	function index(){
@@ -20,6 +20,17 @@ class MemberController extends Controller
 		$data = $md->getAllMembers();
 		$this->render('member',$data,'THÀNH VIÊN','admin');
 	}
+
+	function validateUserName($userName, $id = null) {
+        require_once 'models/admin/memberModel.php';
+        $md = new memberModel;
+
+        if ($md->validateUserName($userName, $id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * @throws Exception
@@ -51,10 +62,14 @@ class MemberController extends Controller
                 $now = new DateTime(null, new DateTimeZone('ASIA/Ho_Chi_Minh'));
                 $now = $now->format('Y-m-d H:i:s');
                 $data[] = $now; $data[] = '0';
-                if ($md->insertPR('thanhvien',$data)) {
-                    $result = "Successful";
+                if (!$this->validateUserName($_POST['username'])) {
+                    if ($md->insertPR('thanhvien',$data)) {
+                        $result = "Successful";
+                    } else {
+                        $result = "Error";
+                    }
                 } else {
-                    $result = "Error";
+                    $result = "Đã tồn tại tên đăng nhập này";
                 }
 			break;
             case 'editMember':
@@ -67,10 +82,14 @@ class MemberController extends Controller
                 if(isset($_POST['tel'])){$data[] = $_POST['tel'];} else {$data[] = 'No info';}
                 if(isset($_POST['email'])){$data[] = $_POST['email'];} else {$data[] = 'No info';}
                 $setRow = ['ten', 'tentaikhoan', 'matkhau', 'diachi', 'sodt', 'email'];
-                if ($md->update('thanhvien',$setRow, $data, "id = ".$id)) {
-                    $result = "Successful";
+                if (!$this->validateUserName($_POST['username'], $_POST['id'])) {
+                    if ($md->update('thanhvien',$setRow, $data, "id = ".$id)) {
+                        $result = "Successful";
+                    } else {
+                        $result = "Error";
+                    }
                 } else {
-                    $result = "Error";
+                    $result = "Đã tồn tại tên đăng nhập này";
                 }
                 break;
 			default:

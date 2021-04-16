@@ -68,6 +68,10 @@ class ProductController extends Controller
                 $data = $md->getPrds('masp', 0, 8, 'madm = 11');
                 $title = "<span id='contentTitle' data-type='onsale'>Sản phẩm cho cặp đôi</span>";
                 break;
+            case 'phuKien':
+                $data = $md->getPrds('masp', 0, 8, 'phukien NOT LIKE "%Không%"');
+                $title = "<span id='contentTitle' data-type='onsale'>Phụ kiện</span>";
+                break;
 
             case '':
             case 'All':

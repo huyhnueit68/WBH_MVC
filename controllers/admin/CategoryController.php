@@ -10,7 +10,7 @@ class CategoryController extends Controller
 	{
 		$this->folder = "admin";
 		if(!isset($_SESSION['admin'])){
-			header("Location: http://localhost/WBH_MVC/admin");
+			header("Location: http://localhost/phamquanghuy/admin");
 		}
 	}
 	function index(){
@@ -20,6 +20,19 @@ class CategoryController extends Controller
 		$data = $md->getAllCtgrs();
 		$this->render('category',$data,'DANH MỤC SẢN PHẨM','admin');
 	}
+
+    /**
+     * @return bool
+     */
+	function validateCategory($nameCategory, $id = null){
+        require_once 'models/admin/categoryModel.php';
+        $md = new categoryModel;
+        if ($md->validateName($nameCategory, $id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      *
@@ -38,8 +51,12 @@ class CategoryController extends Controller
                 if(isset($_GET['ccountry'])){$ccountry = $_GET['ccountry'];}
                 if($cname == ''){echo "Bạn chưa điền tên danh mục!";return;}
                 $data = array($cname, $ccountry);
-                if($md->insertPR('danhmucsp',$data)){
-                    echo "OK";
+                if (!$this->validateCategory($cname)){
+                    if($md->insertPR('danhmucsp',$data)){
+                        echo "OK";
+                    }
+                } else {
+                    echo "Tên danh mục đã tồn tại";
                 }
                 break;
 
@@ -54,8 +71,16 @@ class CategoryController extends Controller
                 if(isset($_GET['country4edit'])){$c4edit = $_GET['country4edit'];}
                 if(isset($_GET['name4edit'])){$n4edit = $_GET['name4edit'];}
                 $setVal = array($n4edit, $c4edit);
-                $md->update('danhmucsp',$setRow, $setVal, 'madm = '.$id);
-                echo "OK";
+                if (!$this->validateCategory($n4edit,$id)){
+                    if ($md->update('danhmucsp',$setRow, $setVal, 'madm = '.$id)) {
+                        echo "OK";
+                    }
+                } else {
+                    echo "Tên danh mục đã tồn tại";
+                }
+                break;
+            default:
+                echo "";
                 break;
 		}
 	}

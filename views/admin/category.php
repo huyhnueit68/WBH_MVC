@@ -14,10 +14,11 @@
           <div class="container" style="margin: 10px 0;">
             <span class="btn btn-primary glyphicon glyphicon-plus btn-sm" id="addBtn"></span>
           </div>
-          <div class="container" id="addArea" style="width: 100%; display: none; padding-bottom: 10px;">
+            <div><i id="addError" style="color: red"></i></div>
+            <div class="container" id="addArea" style="width: 100%; display: none; padding-bottom: 10px;">
             <form action="" method="POST" role="form">
               <legend>Thêm danh mục</legend>
-              <i id="addError" style="color: red"></i>
+                <div><i id="addError" style="color: red"></i></div>
               <div class="form-group">
                 <label for="">Tên danh mục</label>
                 <input type="text" class="form-control" id="categoryName">
@@ -144,37 +145,43 @@
     $('#categoryName4Edit').val($(this).closest('tr').children('td:nth-child(3)').text().trim());
     $('#categoryCountry4Edit').val($(this).closest('tr').children('td:nth-child(4)').text().trim());
   })
+
   $('#cancelEditBtn').on('click',function(){
     $('#example1').toggle();
     $('#editArea').toggle(300);
   })
+
   function action(name, id = null){
     var name4edit = $('#categoryName4Edit').val();
     var country4edit = $('#categoryCountry4Edit').val();
     var ccountry;
     var cname = ccountry = '';
-    if(name == 'add'){
-        cname = $('#categoryName').val();
-        ccountry = $('#categoryCountry').val();
-        if(cname == ''){
-            alert('Bạn chưa điền tên danh mục!');
-            return;
+    if (name4edit != "" && country4edit != "") {
+        if(name == 'add'){
+            cname = $('#categoryName').val();
+            ccountry = $('#categoryCountry').val();
+            if(cname == ''){
+                alert('Bạn chưa điền tên danh mục!');
+                return;
+            }
         }
+        $.ajax({
+            url: 'category/action',
+            type: 'GET',
+            dataType: 'text',
+            data: {name, id,cname, ccountry, name4edit, country4edit},
+            success: function(result){
+                if(result == 'OK'){
+                    alert("Successful!");
+                    location.reload();
+                } else {
+                    $('#addError').html(result);
+                }
+            }
+        })
+    } else {
+        $('#addError').html("Xin mời nhập đầy đủ thông tin");
     }
-    $.ajax({
-      url: 'category/action',
-      type: 'GET',
-      dataType: 'text',
-      data: {name, id,cname, ccountry, name4edit, country4edit},
-      success: function(result){
-        if(result == 'OK'){
-          alert("Successful!");
-          location.reload();
-        } else {
-          $('#addError').html(result);
-        }
-      }
-    })
   }
 </script>
 

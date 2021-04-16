@@ -14,7 +14,7 @@
           <div class="container" style="margin: 10px 0;">
             <span class="btn btn-primary glyphicon glyphicon-plus btn-sm" id="addBtn"></span>
           </div>
-            <i id="addError" style="color: red"></i>
+            <div><i id="addError" style="color: red"></i></div>
             <div class="container" style="margin-bottom: 15px; display: none" id="addArea">
               <form action="" method="POST" role="form">
               <legend>Thêm thành viên</legend>
@@ -206,22 +206,22 @@
   })
   function action(name, id=null){
       var name2 = username = cpassword = password = addr = tel = email = '';
-    if(name == 'addMember'){
-      name2 = $('#name').val();
-      username = $('#username').val();
-      password = $('#password').val();
-      cpassword = $('#cpassword').val();
-      addr = $('#addr').val();
-      tel = $('#tel').val();
-      email = $('#email').val();
-        if(username == '' || password == ''){
-        alert('Không được để trống!');
-        return;
-      }
-      if(password != cpassword){
-        alert('Mật khẩu nhập lại không trùng khớp!');
-        return;
-      }
+      if(name == 'addMember'){
+          name2 = $('#name').val();
+          username = $('#username').val();
+          password = $('#password').val();
+          cpassword = $('#cpassword').val();
+          addr = $('#addr').val();
+          tel = $('#tel').val();
+          email = $('#email').val();
+          if(username == '' || password == ''){
+              alert('Không được để trống!');
+              return;
+          }
+          if(password != cpassword){
+              alert('Mật khẩu nhập lại không trùng khớp!');
+              return;
+          }
     } else {
         if (name == "editMember") {
             name2 = $('#name2').val();
@@ -241,6 +241,7 @@
             }
         }
     }
+
       $.ajax({
       url: 'member/action',
       type: 'POST',
@@ -251,10 +252,10 @@
               alert("Successful!");
               location.reload();
           } else {
-              $('#addError').html(result);
+              $('#addError').html("Error! " + result);
           }
       }
     })
-    
+
   }
 </script>

@@ -29,6 +29,26 @@ class productModel extends Model
 	}
 
     /**
+     * @param $orderBy
+     * @param $start
+     * @param $last
+     * @param null $where
+     * @return array
+     */
+    function getPrdsWishList($orderBy, $start, $last, $where = null){
+        if($where === null){
+            $sql = "SELECT * FROM sanphamyeuthich ORDER BY ".$orderBy." desc LIMIT ".$start.",".$last;
+        } else {
+            $sql = "SELECT * FROM sanphamyeuthich WHERE ".$where." ORDER BY ".$orderBy." desc LIMIT ".$start.",".$last;
+        }
+        $prd = array();
+        foreach($this->conn->query($sql) as $row){
+            $prd[] = $row;
+        }
+        return $prd;
+    }
+
+    /**
      * @param $masp
      * @return array
      */

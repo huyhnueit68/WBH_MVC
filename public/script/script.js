@@ -69,7 +69,7 @@ function login(){
     },
     success : function (result){
       if(result == 'LoginSuccess'){
-        window.location.replace("https://localhost/WBH_MVC");
+        window.location.replace("https://localhost/phamquanghuy");
       } else {
         $('.errorMes')[0].style.display = "block";
         $('.errorMes').html(result);
@@ -95,7 +95,7 @@ function register(){
    success : function (result){
     if(result == 'RegisterSuccess'){
       alert('Tạo tài khoản thành công!');
-      window.location.replace("http://localhost/WBH_MVC/");
+      window.location.replace("http://localhost/phamquanghuy/");
     } else{
       $('.errorMes')[0].style.display = "block";
       $('.errorMes').html(result);

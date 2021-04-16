@@ -25,6 +25,9 @@ class orderDetailModel extends Model
         }
     }
 
+    /**
+     * @return array
+     */
     function getAllMemberBuy(){
 	    //SELECT TV.ten, RESULT.tongtien FROM thanhvien AS TV, (SELECT GD.user_id, SUM(GD.tongtien) AS tongtien FROM giaodich AS GD GROUP BY GD.user_id) AS RESULT WHERE TV.id = RESULT.user_id
         $sql = $this->select('TV.ten, RESULT.tongtien', 'thanhvien AS TV, (SELECT GD.user_id, SUM(GD.tongtien) AS tongtien FROM giaodich AS GD GROUP BY GD.user_id) AS RESULT', 'TV.id = RESULT.user_id');
@@ -44,6 +47,9 @@ class orderDetailModel extends Model
         return $dataMemberBuy;
     }
 
+    /**
+     * @return array
+     */
     function getAllSaleMonth(){
         //SELECT MONTH(GD.date) AS THANG, YEAR(GD.date) AS NAM, SUM(GD.tongtien) AS TONGTIEN FROM giaodich AS GD GROUP BY THANG, NAM
         $sql = $this->select('MONTH(GD.date) AS THANG, YEAR(GD.date) AS NAM, SUM(GD.tongtien) AS TONGTIEN', 'giaodich AS GD', '', 'GROUP BY THANG, NAM');

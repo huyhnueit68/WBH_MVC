@@ -10,7 +10,7 @@ class OrderController extends Controller
     {
         $this->folder = "admin";
         if(!isset($_SESSION['admin'])){
-            header("Location: http://localhost/WBH_MVC/indexadmin");
+            header("Location: http://localhost/phamquanghuy/indexadmin");
         }
     }
 
